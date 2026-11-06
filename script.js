@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       searchStatusBanner.style.display = 'flex';
       searchStatusBanner.innerHTML = `
         <span>Mostrando <strong>${matchCount}</strong> historias de Los Laches para <em>“${heroSearchInput.value}”</em></span>
-        <button id="clear-search-btn" style="text-decoration:underline;font-weight:700;color:var(--cat-oficios);">Ver todas las historias</button>
+        <button id="clear-search-btn" class="clear-search-btn">Ver todas las historias</button>
       `;
       const clearBtn = document.getElementById('clear-search-btn');
       if (clearBtn) {

@@ -167,27 +167,27 @@
               <h4>Explora por categoría</h4>
               <div class="mini-cat-pills">
                 <a href="#mapa-cultural" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-mapa);">🗺️</span>
+                  <span class="mini-pill-icon bg-cat-mapa">🗺️</span>
                   <span>Mapa</span>
                 </a>
                 <a href="#personajes" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-personajes);">👤</span>
+                  <span class="mini-pill-icon bg-cat-personajes">👤</span>
                   <span>Personajes</span>
                 </a>
                 <a href="#oficios" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-oficios);">🛠️</span>
+                  <span class="mini-pill-icon bg-cat-oficios">🛠️</span>
                   <span>Oficios</span>
                 </a>
                 <a href="#lugares" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-lugares);">🏘️</span>
+                  <span class="mini-pill-icon bg-cat-lugares">🏘️</span>
                   <span>Lugares</span>
                 </a>
                 <a href="#tradiciones" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-tradiciones);">🎭</span>
+                  <span class="mini-pill-icon bg-cat-tradiciones">🎭</span>
                   <span>Tradiciones</span>
                 </a>
                 <a href="#archivo" class="mini-pill">
-                  <span class="mini-pill-icon" style="background: var(--cat-archivo);">📷</span>
+                  <span class="mini-pill-icon bg-cat-archivo">📷</span>
                   <span>Archivo</span>
                 </a>
               </div>
@@ -195,10 +195,7 @@
           </aside>
         </div>
 
-        <div
-          id="search-results-status"
-          style="display:none; margin-top:1rem; background:#fff; padding:0.85rem 1.25rem; border-radius:12px; border:1px solid var(--border-warm); justify-content:space-between; align-items:center;"
-        ></div>
+        <div id="search-results-status" class="search-results-status"></div>
       </div>
     </section>
 
@@ -242,7 +239,7 @@
             <span class="section-eyebrow">Recorrido por nuestra identidad lachuna</span>
             <h2 class="section-main-title">Las 6 dimensiones culturales del Barrio Los Laches</h2>
           </div>
-          <p style="font-size:0.9rem; color:var(--text-secondary); max-width:460px;">
+          <p class="section-intro-desc">
             Fotografías reales del archivo de Bogotá (Wikimedia Commons) y geolocalización directa en <strong>Google Maps</strong> del Barrio Los Laches en Santa Fe.
           </p>
         </div>
@@ -277,12 +274,12 @@
                 </a>
 
                 <div class="mini-map-legend">
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-mapa)"></i> Todos</span>
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-personajes)"></i> Personajes</span>
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-oficios)"></i> Oficios</span>
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-lugares)"></i> Lugares</span>
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-tradiciones)"></i> Tradiciones</span>
-                  <span class="legend-row"><i class="legend-dot" style="background:var(--cat-archivo)"></i> Archivo</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-mapa"></i> Todos</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-personajes"></i> Personajes</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-oficios"></i> Oficios</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-lugares"></i> Lugares</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-tradiciones"></i> Tradiciones</span>
+                  <span class="legend-row"><i class="legend-dot bg-cat-archivo"></i> Archivo</span>
                 </div>
 
                 <a href="#mapa-cultural" class="mini-map-preview-card" data-goto-map="capilla">
@@ -295,7 +292,7 @@
                       <strong>Iglesia de La Peña</strong>
                       <span>Lugar · Los Laches</span>
                     </div>
-                    <span style="color:var(--cat-oficios);font-weight:800;">→</span>
+                    <span class="preview-arrow-accent">→</span>
                   </div>
                 </a>
               </div>
@@ -346,10 +343,10 @@
               <div class="audio-player-pill" id="pillar-audio-player" data-audio="audios/dona_mercedes.wav">
                 <button type="button" class="audio-play-btn" aria-label="Reproducir testimonio">▶</button>
                 <div class="waveform-bars" aria-hidden="true">
-                  <span style="height:35%"></span><span style="height:70%"></span><span style="height:50%"></span>
-                  <span style="height:90%"></span><span style="height:40%"></span><span style="height:75%"></span>
-                  <span style="height:60%"></span><span style="height:95%"></span><span style="height:45%"></span>
-                  <span style="height:80%"></span><span style="height:55%"></span><span style="height:35%"></span>
+                  <span class="bar-h35"></span><span class="bar-h70"></span><span class="bar-h50"></span>
+                  <span class="bar-h90"></span><span class="bar-h40"></span><span class="bar-h75"></span>
+                  <span class="bar-h60"></span><span class="bar-h95"></span><span class="bar-h45"></span>
+                  <span class="bar-h80"></span><span class="bar-h55"></span><span class="bar-h35"></span>
                 </div>
                 <span class="audio-time" id="pillar-char-time">00:15</span>
               </div>
@@ -383,7 +380,7 @@
                 </p>
               </div>
               <a href="#mapa-cultural" class="pillar-action-link" data-goto-map="carpinteria">
-                <span style="color:var(--cat-oficios);">📍</span>
+                <span class="text-cat-oficios">📍</span>
                 <span>Ver en Google Maps</span>
               </a>
             </div>
@@ -416,7 +413,7 @@
                 </p>
               </div>
               <a href="#mapa-cultural" class="pillar-action-link" data-goto-map="capilla">
-                <span style="color:var(--cat-lugares);">📍</span>
+                <span class="text-cat-lugares">📍</span>
                 <span>Ver en Google Maps</span>
               </a>
             </div>
@@ -449,7 +446,7 @@
                 </p>
               </div>
               <a href="#tradiciones" class="pillar-action-link" data-story="carnaval">
-                <span style="color:var(--cat-tradiciones);">➜</span>
+                <span class="text-cat-tradiciones">➜</span>
                 <span>Ver más →</span>
               </a>
             </div>
@@ -504,7 +501,7 @@
                 </p>
               </div>
               <a href="#archivo" class="pillar-action-link">
-                <span style="color:var(--cat-archivo);">➜</span>
+                <span class="text-cat-archivo">➜</span>
                 <span>Ver galería</span>
               </a>
             </div>
@@ -524,7 +521,7 @@
             <span class="section-badge-pill badge-mapa">🗺️ 01 · Mapa Cultural en Google Maps</span>
             <h2 class="section-main-title">Explora el Barrio Los Laches en Google Maps</h2>
           </div>
-          <p style="max-width:500px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             Navega directamente por las calles reales del <strong>Barrio Los Laches (Localidad de Santa Fe, Bogotá)</strong>. Haz clic en cualquier hito o categoría para centrar <strong>Google Maps</strong> y leer su historia.
           </p>
         </div>
@@ -532,61 +529,61 @@
         <div class="map-explorer-layout">
           <!-- Columna Izquierda: Buscador y Filtros que controlan Google Maps -->
           <div class="map-sidebar-filters">
-            <div class="hero-search-box" style="box-shadow:none; border:1px solid var(--border-warm); padding:0.3rem 0.45rem 0.3rem 0.9rem;">
+            <div class="hero-search-box map-internal-search-box">
               <input
                 type="search"
                 id="map-internal-search"
+                class="map-internal-search-input"
                 placeholder="Buscar calle o lugar en Los Laches..."
-                style="font-size:0.85rem;"
               />
             </div>
 
             <div class="map-filter-list" role="tablist" aria-label="Filtrar categorías en Google Maps">
               <button type="button" class="map-filter-btn active" data-filter="todos">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-mapa);"></span>
+                  <span class="filter-color-dot bg-cat-mapa"></span>
                   <span>Vista general Los Laches</span>
                 </span>
                 <span class="filter-count">7</span>
               </button>
               <button type="button" class="map-filter-btn" data-filter="lugares">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-lugares);"></span>
+                  <span class="filter-color-dot bg-cat-lugares"></span>
                   <span>Lugares emblemáticos</span>
                 </span>
                 <span class="filter-count">2</span>
               </button>
               <button type="button" class="map-filter-btn" data-filter="oficios">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-oficios);"></span>
+                  <span class="filter-color-dot bg-cat-oficios"></span>
                   <span>Oficios tradicionales</span>
                 </span>
                 <span class="filter-count">2</span>
               </button>
               <button type="button" class="map-filter-btn" data-filter="personajes">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-personajes);"></span>
+                  <span class="filter-color-dot bg-cat-personajes"></span>
                   <span>Personajes</span>
                 </span>
                 <span class="filter-count">1</span>
               </button>
               <button type="button" class="map-filter-btn" data-filter="tradiciones">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-tradiciones);"></span>
+                  <span class="filter-color-dot bg-cat-tradiciones"></span>
                   <span>Tradiciones</span>
                 </span>
                 <span class="filter-count">1</span>
               </button>
               <button type="button" class="map-filter-btn" data-filter="archivo">
                 <span class="filter-left">
-                  <span class="filter-color-dot" style="background:var(--cat-archivo);"></span>
+                  <span class="filter-color-dot bg-cat-archivo"></span>
                   <span>Hitos de Archivo</span>
                 </span>
                 <span class="filter-count">1</span>
               </button>
             </div>
 
-            <div style="margin-top:auto; background:var(--bg-cream); padding:0.9rem; border-radius:12px; font-size:0.8rem; color:var(--text-secondary);">
+            <div class="map-limits-box">
               <strong>📍 Límites en Google Maps:</strong><br />
               Ubicado al oriente de la Av. Circunvalar, entre el Barrio El Consuelo / Rocas al norte, el Barrio Egipto al occidente, el Santuario de Nuestra Señora de la Peña al sur y la Reserva Forestal Protectora Bosque Oriental de Bogotá al oriente.
             </div>
@@ -645,36 +642,35 @@
               alt="Vista real de los Cerros Orientales en el sector de Los Laches, Bogotá"
             />
             <div>
-              <span id="map-detail-cat" class="story-card-tag" style="color:var(--cat-lugares);">Lugar Emblemático · Mirador Natural</span>
-              <h3 id="map-detail-title" class="pillar-card-title" style="font-size:1.22rem; margin-top:0.2rem;">
+              <span id="map-detail-cat" class="story-card-tag text-cat-lugares">Lugar Emblemático · Mirador Natural</span>
+              <h3 id="map-detail-title" class="pillar-card-title map-detail-heading">
                 Mirador La Piedra del Amor (Rocas de Los Laches)
               </h3>
               <p id="map-detail-coords" class="map-detail-coords">
                 4.5894° N, 74.0612° W · Parte Alta Barrio Los Laches, Santa Fe
               </p>
             </div>
-            <p id="map-detail-desc" style="font-size:0.85rem; color:var(--text-secondary);">
+            <p id="map-detail-desc" class="map-detail-desc">
               A más de 2.750 metros sobre el nivel del mar en los Cerros Orientales, estas formaciones rocosas ancestrales ofrecen una de las panorámicas reales más sobrecogedoras de Bogotá. Ha sido punto de encuentro de caminantes ecológicos, jóvenes del barrio y rituales de memoria muisca y lache.
             </p>
-            <blockquote id="map-detail-quote" style="font-family:var(--font-body); font-style:italic; font-size:0.84rem; background:#fff; padding:0.7rem; border-radius:10px; border-left:4px solid var(--brand-yellow);">
+            <blockquote id="map-detail-quote" class="map-detail-quote">
               “Subir a la Piedra del Amor al atardecer es entender que Los Laches es el balcón donde Bogotá conversa con la montaña.”
             </blockquote>
-            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:auto;">
+            <div class="map-detail-actions">
               <button
                 type="button"
                 id="map-detail-modal-btn"
-                class="btn-contribute"
-                style="justify-content:center; width:100%;"
+                class="btn-contribute btn-full-center"
                 data-story="piedraAmor"
               >
                 Leer crónica completa →
               </button>
               <a
                 id="open-in-gmaps-link"
+                class="open-in-gmaps-link"
                 href="https://www.google.com/maps/search/?api=1&query=Barrio+Los+Laches,+Santa+Fe,+Bogota"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="text-align:center; font-size:0.78rem; font-weight:700; color:var(--cat-lugares); padding:0.35rem;"
               >
                 ↗ Abrir ubicación directamente en Google Maps
               </a>
@@ -694,7 +690,7 @@
             <span class="section-badge-pill badge-personajes">👤 02 · Personajes del Barrio</span>
             <h2 class="section-main-title">Voces y rostros que forjaron Los Laches</h2>
           </div>
-          <p style="max-width:460px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             Retratos documentales y testimonios en primera persona de las sabedoras culinarias, los maestros fundadores y la juventud artística de la Localidad de Santa Fe.
           </p>
         </div>
@@ -714,15 +710,15 @@
               <blockquote class="character-testimony">
                 “Nuestras madres trajeron de Boyacá el secreto de los envueltos de mazorca, la chicha de maíz y el cuchuco con espinazo. En nuestros fogones han comido desde los obreros que abrieron las vías hasta los niños de las comparsas.”
               </blockquote>
-              <p style="font-size:0.86rem; color:var(--text-secondary);">
+              <p class="character-bio">
                 Guardianas de la cocina tradicional cundiboyacense en los barrios altos de la Localidad de Santa Fe y lideresas de las ollas comunitarias dominicales.
               </p>
-              <div class="audio-player-pill" data-audio="audios/dona_mercedes.wav" style="margin-top:auto;">
+              <div class="audio-player-pill mt-auto" data-audio="audios/dona_mercedes.wav">
                 <button type="button" class="audio-play-btn" aria-label="Escuchar testimonio">▶</button>
                 <div class="waveform-bars">
-                  <span style="height:65%"></span><span style="height:45%"></span><span style="height:80%"></span>
-                  <span style="height:60%"></span><span style="height:95%"></span><span style="height:50%"></span>
-                  <span style="height:75%"></span><span style="height:40%"></span><span style="height:85%"></span>
+                  <span class="bar-h65"></span><span class="bar-h45"></span><span class="bar-h80"></span>
+                  <span class="bar-h60"></span><span class="bar-h95"></span><span class="bar-h50"></span>
+                  <span class="bar-h75"></span><span class="bar-h40"></span><span class="bar-h85"></span>
                 </div>
                 <span class="audio-time">00:15</span>
               </div>
@@ -743,15 +739,15 @@
               <blockquote class="character-testimony">
                 “Llegamos cuando toda esta loma de Los Laches eran hornos de ladrillo y cantera. Pisábamos el barro descalzos al amanecer, y los domingos en convite levantábamos la casa del vecino. El barrio se hizo a pulso y hermandad.”
               </blockquote>
-              <p style="font-size:0.86rem; color:var(--text-secondary);">
+              <p class="character-bio">
                 Trabajó durante 28 años en los antiguos chircales de la parte alta de Santa Fe y lideró la primera Junta Pro-Acueducto comunitario del barrio.
               </p>
-              <div class="audio-player-pill" data-audio="audios/don_josue.wav" style="margin-top:auto;">
+              <div class="audio-player-pill mt-auto" data-audio="audios/don_josue.wav">
                 <button type="button" class="audio-play-btn" aria-label="Escuchar testimonio de Don Josué">▶</button>
                 <div class="waveform-bars">
-                  <span style="height:40%"></span><span style="height:85%"></span><span style="height:55%"></span>
-                  <span style="height:95%"></span><span style="height:50%"></span><span style="height:75%"></span>
-                  <span style="height:60%"></span><span style="height:90%"></span><span style="height:45%"></span>
+                  <span class="bar-h40"></span><span class="bar-h85"></span><span class="bar-h55"></span>
+                  <span class="bar-h95"></span><span class="bar-h50"></span><span class="bar-h75"></span>
+                  <span class="bar-h60"></span><span class="bar-h90"></span><span class="bar-h45"></span>
                 </div>
                 <span class="audio-time">00:16</span>
               </div>
@@ -772,15 +768,15 @@
               <blockquote class="character-testimony">
                 “Crecimos escuchando estigmas sobre nuestro barrio, pero decidimos pintar en las fachadas de Los Laches el rostro de nuestras abuelas, la cosmogonía indígena Lache y las aves de los Cerros Orientales.”
               </blockquote>
-              <p style="font-size:0.86rem; color:var(--text-secondary);">
+              <p class="character-bio">
                 Jóvenes artistas que dirigen talleres de muralismo, hip-hop pedagógico, huertas urbanas y cine al aire libre en las escaleras del barrio.
               </p>
-              <div class="audio-player-pill" data-audio="audios/valentina_jovenes.wav" style="margin-top:auto;">
+              <div class="audio-player-pill mt-auto" data-audio="audios/valentina_jovenes.wav">
                 <button type="button" class="audio-play-btn" aria-label="Escuchar testimonio juvenil">▶</button>
                 <div class="waveform-bars">
-                  <span style="height:50%"></span><span style="height:90%"></span><span style="height:65%"></span>
-                  <span style="height:40%"></span><span style="height:85%"></span><span style="height:70%"></span>
-                  <span style="height:95%"></span><span style="height:55%"></span><span style="height:60%"></span>
+                  <span class="bar-h50"></span><span class="bar-h90"></span><span class="bar-h65"></span>
+                  <span class="bar-h40"></span><span class="bar-h85"></span><span class="bar-h70"></span>
+                  <span class="bar-h95"></span><span class="bar-h55"></span><span class="bar-h60"></span>
                 </div>
                 <span class="audio-time">00:14</span>
               </div>
@@ -800,7 +796,7 @@
             <span class="section-badge-pill badge-oficios">🛠️ 03 · Oficios y Saberes del Trabajo</span>
             <h2 class="section-main-title">Manos trabajadoras y negocios tradicionales</h2>
           </div>
-          <p style="max-width:460px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             De la extracción artesanal de greda y quema de ladrillo en los antiguos chircales a los talleres de carpintería, plazas y panaderías que sostienen la vida barrial.
           </p>
         </div>
@@ -816,14 +812,14 @@
               <span class="story-year-chip">Raíz Fundacional · 1950</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-oficios);">Memoria del Barro</span>
+              <span class="story-card-tag text-cat-oficios">Memoria del Barro</span>
               <h3 class="story-card-title">Los Antiguos Chircales y Maestros Constructores</h3>
               <p class="story-card-text">
                 Antes de consolidarse como barrio, Los Laches fue tierra de chircales: hornos artesanales donde familias enteras extraían arcilla de los Cerros Orientales para moldear ladrillos tolete y tejas de barro. Al cerrarse los hornos, esos mismos trabajadores se convirtieron en los grandes maestros de obra de Bogotá.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="chircal" style="color:var(--cat-oficios);">📍 Ver en Google Maps</a>
-                <button type="button" data-story="chircal" style="color:var(--text-primary); font-weight:700;">Leer historia →</button>
+                <a href="#mapa-cultural" data-goto-map="chircal" class="text-cat-oficios">📍 Ver en Google Maps</a>
+                <button type="button" data-story="chircal" class="story-read-btn">Leer historia →</button>
               </div>
             </div>
           </article>
@@ -838,14 +834,14 @@
               <span class="story-year-chip">42 años de tradición</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-oficios);">Ebanistería y Talleres</span>
+              <span class="story-card-tag text-cat-oficios">Ebanistería y Talleres</span>
               <h3 class="story-card-title">La Carpintería de Don Manuel en la Carrera 9 Este</h3>
               <p class="story-card-text">
                 Con cepillo manual, formón y torno, don Manuel ha fabricado los portones, escaparates, comedores y juguetes de madera de cientos de hogares lachunos. Su taller funciona como espacio de aprendizaje para jóvenes del sector.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="carpinteria" style="color:var(--cat-oficios);">📍 Cra. 9 Este con Calle 3</a>
-                <button type="button" data-story="carpinteria" style="color:var(--text-primary); font-weight:700;">Leer historia →</button>
+                <a href="#mapa-cultural" data-goto-map="carpinteria" class="text-cat-oficios">📍 Cra. 9 Este con Calle 3</a>
+                <button type="button" data-story="carpinteria" class="story-read-btn">Leer historia →</button>
               </div>
             </div>
           </article>
@@ -860,14 +856,14 @@
               <span class="story-year-chip">Desde 1978</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-oficios);">Abasto y Amasijos</span>
+              <span class="story-card-tag text-cat-oficios">Abasto y Amasijos</span>
               <h3 class="story-card-title">Hornos de Amasijos y Tiendas Tradicionales de la Loma</h3>
               <p class="story-card-text">
                 Desde las 4:30 de la mañana el aroma a mogolla chicharrona, almojábana, garulla y aguapanela con queso acompaña a los trabajadores que bajan hacia el centro de Bogotá. Espacios de tertulia matutina y economía solidaria.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="mercedes" style="color:var(--cat-oficios);">📍 Plazoleta Los Laches</a>
-                <button type="button" data-story="mercedes" style="color:var(--text-primary); font-weight:700;">Leer historia →</button>
+                <a href="#mapa-cultural" data-goto-map="mercedes" class="text-cat-oficios">📍 Plazoleta Los Laches</a>
+                <button type="button" data-story="mercedes" class="story-read-btn">Leer historia →</button>
               </div>
             </div>
           </article>
@@ -885,7 +881,7 @@
             <span class="section-badge-pill badge-lugares">🏘️ 04 · Lugares y Patrimonio Real</span>
             <h2 class="section-main-title">Espacios significativos para la comunidad</h2>
           </div>
-          <p style="max-width:460px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             Fotografías reales de los hitos naturales, religiosos y ambientales que enmarcan la vida del Barrio Los Laches en la Localidad de Santa Fe.
           </p>
         </div>
@@ -901,14 +897,14 @@
               <span class="story-year-chip">Monumento Nacional · 1685</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-lugares);">Patrimonio Histórico y Espiritual</span>
+              <span class="story-card-tag text-cat-lugares">Patrimonio Histórico y Espiritual</span>
               <h3 class="story-card-title">Santuario e Iglesia de Nuestra Señora de la Peña</h3>
               <p class="story-card-text">
                 Levantado entre 1717 y 1722 en la parte alta de Los Laches tras el hallazgo de las imágenes de la Sagrada Familia en la roca en 1685. Declarado Monumento Nacional en 1975, es el referente patrimonial más antiguo del barrio.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="capilla" style="color:var(--cat-lugares);">📍 Ver en Google Maps</a>
-                <button type="button" data-story="capilla" style="color:var(--text-primary); font-weight:700;">Explorar lugar →</button>
+                <a href="#mapa-cultural" data-goto-map="capilla" class="text-cat-lugares">📍 Ver en Google Maps</a>
+                <button type="button" data-story="capilla" class="story-read-btn">Explorar lugar →</button>
               </div>
             </div>
           </article>
@@ -923,14 +919,14 @@
               <span class="story-year-chip">Mirador Natural · 2.750 m</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-lugares);">Hito Geográfico</span>
+              <span class="story-card-tag text-cat-lugares">Hito Geográfico</span>
               <h3 class="story-card-title">Mirador La Piedra del Amor (Rocas de Los Laches)</h3>
               <p class="story-card-text">
                 Afloramiento rocoso natural desde donde se contempla todo el centro histórico de Bogotá, Monserrate, Guadalupe y la sabana. Escenario de caminatas ecológicas y memoria ancestral del pueblo indígena Lache.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="piedraAmor" style="color:var(--cat-lugares);">📍 Ver en Google Maps</a>
-                <button type="button" data-story="piedraAmor" style="color:var(--text-primary); font-weight:700;">Explorar lugar →</button>
+                <a href="#mapa-cultural" data-goto-map="piedraAmor" class="text-cat-lugares">📍 Ver en Google Maps</a>
+                <button type="button" data-story="piedraAmor" class="story-read-btn">Explorar lugar →</button>
               </div>
             </div>
           </article>
@@ -945,14 +941,14 @@
               <span class="story-year-chip">Reserva y Quebrada</span>
             </div>
             <div class="story-card-body">
-              <span class="story-card-tag" style="color:var(--cat-lugares);">Territorio Ambiental</span>
+              <span class="story-card-tag text-cat-lugares">Territorio Ambiental</span>
               <h3 class="story-card-title">Ronda de la Quebrada La Peña y Bosque Oriental</h3>
               <p class="story-card-text">
                 Donde antiguamente funcionaban los lavaderos comunitarios de piedra hoy se conectan los senderos ecológicos de los Cerros Orientales y las huertas urbanas cuidadas por mujeres y jóvenes ambientalistas de Los Laches.
               </p>
               <div class="story-card-footer">
-                <a href="#mapa-cultural" data-goto-map="piedraAmor" style="color:var(--cat-lugares);">📍 Ver en Google Maps</a>
-                <button type="button" data-story="piedraAmor" style="color:var(--text-primary); font-weight:700;">Explorar lugar →</button>
+                <a href="#mapa-cultural" data-goto-map="piedraAmor" class="text-cat-lugares">📍 Ver en Google Maps</a>
+                <button type="button" data-story="piedraAmor" class="story-read-btn">Explorar lugar →</button>
               </div>
             </div>
           </article>
@@ -970,7 +966,7 @@
             <span class="section-badge-pill badge-tradiciones">🎭 05 · Tradiciones y Fiesta Popular</span>
             <h2 class="section-main-title">Costumbres y expresiones que nos unen</h2>
           </div>
-          <p style="max-width:460px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             En Los Laches la fiesta es sinónimo de organización comunitaria: tambores, comparsas bogotanas, convites de embellecimiento y gastronomía compartida en la calle.
           </p>
         </div>
@@ -983,14 +979,14 @@
               alt="Fotografía real de comparsa tradicional y carnaval comunitario en Bogotá"
             />
             <div class="tradition-hero-body">
-              <span class="story-card-tag" style="color:var(--cat-tradiciones);">Celebración Anual · Identidad Lachuna</span>
-              <h3 class="story-card-title" style="font-size:1.65rem; margin-top:0.25rem;">
+              <span class="story-card-tag text-cat-tradiciones">Celebración Anual · Identidad Lachuna</span>
+              <h3 class="story-card-title tradition-hero-title">
                 Festival Artístico y Carnaval de la Montaña en Los Laches
               </h3>
-              <p class="story-card-text" style="font-size:0.95rem;">
+              <p class="story-card-text tradition-hero-text">
                 Una celebración que reúne a familias, colectivos artísticos, colegios, vecinos y visitantes para mantener vivas nuestras raíces. Las empinadas calles se llenan de zanqueros, batucadas, danzas folclóricas andinas, muestras de rap consciente ("Hip-Hop de los Cerros") y encuentros intergeneracionales.
               </p>
-              <button type="button" class="btn-contribute" style="background:var(--cat-tradiciones);" data-story="carnaval">
+              <button type="button" class="btn-contribute bg-cat-tradiciones" data-story="carnaval">
                 Conocer la historia del Carnaval →
               </button>
             </div>
@@ -1004,9 +1000,9 @@
                 alt="Fotografía real de plato tradicional santafereño y fogón comunitario"
               />
               <div>
-                <span class="story-card-tag" style="color:var(--cat-tradiciones);">Solidaridad Vecinal</span>
-                <h4 class="pillar-card-title" style="font-size:1.15rem;">El Convite Dominical y la Olla Comunitaria Santafereña</h4>
-                <p style="font-size:0.84rem; color:var(--text-secondary); margin-top:0.3rem;">
+                <span class="story-card-tag text-cat-tradiciones">Solidaridad Vecinal</span>
+                <h4 class="pillar-card-title tradition-side-title">El Convite Dominical y la Olla Comunitaria Santafereña</h4>
+                <p class="tradition-side-desc">
                   Herencia directa de la fundación del barrio: cada vez que se pinta una escalera o se limpia la quebrada, cada familia aporta papa, mazorca, guascas o leña para el gran ajiaco o sancocho colectivo.
                 </p>
               </div>
@@ -1018,9 +1014,9 @@
                 alt="Fotografía real de la Iglesia de la Peña en las festividades religiosas de Los Laches"
               />
               <div>
-                <span class="story-card-tag" style="color:var(--cat-tradiciones);">Fe y Romería</span>
-                <h4 class="pillar-card-title" style="font-size:1.15rem;">Romerías a Nuestra Señora de la Peña y Novenas en las Escaleras</h4>
-                <p style="font-size:0.84rem; color:var(--text-secondary); margin-top:0.3rem;">
+                <span class="story-card-tag text-cat-tradiciones">Fe y Romería</span>
+                <h4 class="pillar-card-title tradition-side-title">Romerías a Nuestra Señora de la Peña y Novenas en las Escaleras</h4>
+                <p class="tradition-side-desc">
                   En agosto y diciembre los callejones escalonados se iluminan con faroles artesanales, procesiones tradicionales, música carranguera en vivo, natilla y buñuelos compartidos entre cuadras.
                 </p>
               </div>
@@ -1032,9 +1028,9 @@
                 alt="Fotografía real de muralismo urbano en Bogotá"
               />
               <div>
-                <span class="story-card-tag" style="color:var(--cat-tradiciones);">Arte Urbano y Memoria</span>
-                <h4 class="pillar-card-title" style="font-size:1.15rem;">Galería a Cielo Abierto: Murales de Memoria Indígena Lache</h4>
-                <p style="font-size:0.84rem; color:var(--text-secondary); margin-top:0.3rem;">
+                <span class="story-card-tag text-cat-tradiciones">Arte Urbano y Memoria</span>
+                <h4 class="pillar-card-title tradition-side-title">Galería a Cielo Abierto: Murales de Memoria Indígena Lache</h4>
+                <p class="tradition-side-desc">
                   Más de 30 fachadas intervenidas por artistas locales que narran la cosmogonía indígena Lache, el oficio del barro y la fauna nativa de los páramos y cerros.
                 </p>
               </div>
@@ -1054,7 +1050,7 @@
             <span class="section-badge-pill badge-archivo">📷 06 · Archivo Histórico y Comunitario</span>
             <h2 class="section-main-title">El barrio Los Laches y Santa Fe, ayer y hoy</h2>
           </div>
-          <p style="max-width:480px; color:var(--text-secondary); font-size:0.95rem;">
+          <p class="section-header-desc">
             Desliza el comparador interactivo con fotografías reales de archivo de Bogotá (mediados del siglo XX vs. las laderas actuales de la Localidad de Santa Fe).
           </p>
         </div>
@@ -1093,17 +1089,17 @@
           </div>
 
           <div>
-            <span class="story-card-tag" style="color:var(--cat-archivo);">Memoria Visual · Álbum de Barrio</span>
-            <h3 class="section-main-title" style="font-size:1.75rem; margin:0.4rem 0 0.85rem;">
+            <span class="story-card-tag text-cat-archivo">Memoria Visual · Álbum de Barrio</span>
+            <h3 class="section-main-title archive-showcase-title">
               De las canteras de greda a patrimonio vivo de Santa Fe
             </h3>
-            <p style="color:var(--text-secondary); font-size:0.94rem; margin-bottom:1rem;">
+            <p class="archive-showcase-p">
               Tras las transformaciones urbanas de Bogotá a partir de 1948–1950, las laderas orientales sobre el barrio Egipto y La Peña recibieron a cientos de familias boyacenses y santandereanas que trabajaban en los chircales artesanales. Domingo a domingo levantaron la escuela, la parroquia, las escaleras y el alcantarillado.
             </p>
-            <p style="color:var(--text-secondary); font-size:0.94rem; margin-bottom:1.4rem;">
+            <p class="archive-showcase-p-last">
               Este archivo reúne fotografías históricas documentales de Bogotá junto con vistas reales contemporáneas de los Cerros Orientales y del Santuario de Nuestra Señora de la Peña.
             </p>
-            <button type="button" class="btn-contribute open-contribute-modal" style="background:var(--cat-archivo);">
+            <button type="button" class="btn-contribute open-contribute-modal bg-cat-archivo">
               📷 Aportar una foto antigua o actual al archivo
             </button>
           </div>
@@ -1116,8 +1112,8 @@
               src="https://commons.wikimedia.org/wiki/Special:FilePath/Tranv%C3%ADa_de_Bogot%C3%A1.jpg?width=800"
               alt="Fotografía histórica real del antiguo Bogotá y sus primeros barrios periféricos"
             />
-            <span class="story-card-tag" style="color:var(--cat-archivo);">Archivo Histórico · Siglo XX</span>
-            <h4 class="pillar-card-title" style="margin-top:0.2rem;">El antiguo centro de Bogotá y el ascenso a los Cerros</h4>
+            <span class="story-card-tag text-cat-archivo">Archivo Histórico · Siglo XX</span>
+            <h4 class="pillar-card-title archive-card-title">El antiguo centro de Bogotá y el ascenso a los Cerros</h4>
             <p class="pillar-card-desc">
               Registro histórico de la ciudad tradicional cuyos materiales de mampostería y ladrillo cocido provenían de los chircales de San Cristóbal y Santa Fe.
             </p>
@@ -1128,8 +1124,8 @@
               src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_la_Pe%C3%B1a_(20760327033).jpg?width=800"
               alt="Fotografía real de la Iglesia de Nuestra Señora de la Peña en Los Laches"
             />
-            <span class="story-card-tag" style="color:var(--cat-archivo);">Monumento Nacional · 1975</span>
-            <h4 class="pillar-card-title" style="margin-top:0.2rem;">Declaratoria del Santuario de La Peña en Los Laches</h4>
+            <span class="story-card-tag text-cat-archivo">Monumento Nacional · 1975</span>
+            <h4 class="pillar-card-title archive-card-title">Declaratoria del Santuario de La Peña en Los Laches</h4>
             <p class="pillar-card-desc">
               Vista real de la fachada colonial del templo de Nuestra Señora de la Peña, custodiado por los habitantes del barrio Los Laches desde su consolidación urbana.
             </p>
@@ -1140,8 +1136,8 @@
               src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogot%C3%A1_y_Cerros_Orientales.jpg?width=800"
               alt="Fotografía real panorámica de Bogotá y sus Cerros Orientales"
             />
-            <span class="story-card-tag" style="color:var(--cat-mapa);">Actualidad · Cerros Orientales</span>
-            <h4 class="pillar-card-title" style="margin-top:0.2rem;">Los Laches como balcón ambiental de Bogotá</h4>
+            <span class="story-card-tag text-cat-mapa">Actualidad · Cerros Orientales</span>
+            <h4 class="pillar-card-title archive-card-title">Los Laches como balcón ambiental de Bogotá</h4>
             <p class="pillar-card-desc">
               Panorámica real de la relación entre el tejido urbano de la Localidad de Santa Fe y la Reserva Forestal Protectora de los Cerros Orientales.
             </p>
@@ -1158,19 +1154,16 @@
     <div class="modal-dialog">
       <button type="button" class="modal-close-btn" aria-label="Cerrar ventana">✕</button>
       <span id="modal-story-cat" class="section-badge-pill badge-oficios">Crónica Barrial</span>
-      <h2 id="modal-story-title" class="section-main-title" style="margin-bottom:0.25rem;">Título de la historia</h2>
-      <p id="modal-story-coords" class="map-detail-coords" style="margin-bottom:1rem;"></p>
+      <h2 id="modal-story-title" class="section-main-title modal-story-title">Título de la historia</h2>
+      <p id="modal-story-coords" class="map-detail-coords modal-story-coords"></p>
       <img
         id="modal-story-img"
+        class="modal-story-img"
         src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_La_Pe%C3%B1a_1.jpg?width=900"
         alt="Imagen real de la crónica"
-        style="width:100%; height:260px; object-fit:cover; border-radius:14px; margin-bottom:1.15rem;"
       />
-      <p id="modal-story-body" style="font-size:0.98rem; color:var(--text-primary); margin-bottom:1.15rem;"></p>
-      <blockquote
-        id="modal-story-quote"
-        style="font-family:var(--font-body); font-style:italic; background:#fff; padding:1rem 1.2rem; border-left:4px solid var(--brand-yellow); border-radius:0 12px 12px 0;"
-      ></blockquote>
+      <p id="modal-story-body" class="modal-story-body"></p>
+      <blockquote id="modal-story-quote" class="modal-story-quote"></blockquote>
     </div>
   </div>
 
@@ -1181,21 +1174,21 @@
     <div class="modal-dialog">
       <button type="button" class="modal-close-btn" aria-label="Cerrar ventana">✕</button>
       <span class="section-badge-pill badge-mapa">Participación Comunitaria</span>
-      <h2 id="contribute-modal-title" class="section-main-title" style="font-size:1.65rem; margin-bottom:0.4rem;">
+      <h2 id="contribute-modal-title" class="section-main-title contribute-modal-title">
         Suma tu recuerdo a la memoria de Los Laches
       </h2>
-      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.25rem;">
+      <p class="contribute-modal-desc">
         ¿Tienes una fotografía familiar en los antiguos chircales, conoces un oficio tradicional o quieres postular a un vecino ejemplar de la Localidad de Santa Fe?
       </p>
 
-      <form id="contribute-form" style="display:flex; flex-direction:column; gap:0.9rem;">
+      <form id="contribute-form" class="contribute-form">
         <div>
-          <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:0.25rem;">Tu nombre y cuadra / sector en Los Laches</label>
-          <input type="text" required placeholder="Ej. Familia Morales · Sector La Peña / Calle 3 Este" style="width:100%; padding:0.65rem 0.9rem; border-radius:10px; border:1px solid var(--border-warm); font-family:inherit;" />
+          <label for="contribute-name" class="form-label">Tu nombre y cuadra / sector en Los Laches</label>
+          <input id="contribute-name" type="text" required placeholder="Ej. Familia Morales · Sector La Peña / Calle 3 Este" class="form-control" />
         </div>
         <div>
-          <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:0.25rem;">Categoría del aporte</label>
-          <select style="width:100%; padding:0.65rem 0.9rem; border-radius:10px; border:1px solid var(--border-warm); font-family:inherit; background:#fff;">
+          <label for="contribute-category" class="form-label">Categoría del aporte</label>
+          <select id="contribute-category" class="form-control form-select">
             <option value="personajes">👤 Personajes (Retrato o testimonio)</option>
             <option value="oficios">🛠️ Oficios (Trabajadores y negocios tradicionales)</option>
             <option value="lugares">🏘️ Lugares (Espacios significativos)</option>
@@ -1204,13 +1197,13 @@
           </select>
         </div>
         <div>
-          <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:0.25rem;">Relata la historia o recuerdo</label>
-          <textarea rows="3" required placeholder="Cuéntanos en qué año ocurrió, quiénes aparecen y por qué es importante para el barrio..." style="width:100%; padding:0.65rem 0.9rem; border-radius:10px; border:1px solid var(--border-warm); font-family:inherit;"></textarea>
+          <label for="contribute-story" class="form-label">Relata la historia o recuerdo</label>
+          <textarea id="contribute-story" rows="3" required placeholder="Cuéntanos en qué año ocurrió, quiénes aparecen y por qué es importante para el barrio..." class="form-control"></textarea>
         </div>
-        <button type="submit" class="btn-contribute" style="justify-content:center; padding:0.8rem;">
+        <button type="submit" class="btn-contribute btn-submit-form">
           Enviar aporte al comité de memoria barrial
         </button>
-        <p id="contribute-feedback" style="display:none; color:var(--cat-mapa); font-weight:700; font-size:0.88rem; text-align:center; margin-top:0.35rem;">
+        <p id="contribute-feedback" class="contribute-feedback">
           ¡Gracias vecino(a)! Tu historia ha sido registrada para el archivo comunitario del Barrio Los Laches.
         </p>
       </form>
@@ -1230,10 +1223,10 @@
             class="footer-logo-img"
           />
           <h4>Historias de barrio · Los Laches</h4>
-          <p style="font-size:0.88rem; color:rgba(255,255,255,0.82); margin-bottom:1rem;">
+          <p class="footer-desc">
             Plataforma digital de patrimonio vivo para descubrir, conservar y compartir las historias, personajes, oficios chircaleros, lugares y tradiciones que dan vida al Barrio Los Laches en los Cerros Orientales de Bogotá.
           </p>
-          <span style="font-size:0.78rem; color:#FDB113; font-family:var(--font-aux); font-weight:700;">
+          <span class="footer-location-tag">
             📍 Localidad 3: Santa Fe · UPZ 96 Lourdes · Bogotá D.C., Colombia
           </span>
         </div>
@@ -1263,10 +1256,10 @@
 
         <div class="footer-col">
           <h4>Construcción Colectiva</h4>
-          <p style="font-size:0.86rem; color:rgba(255,255,255,0.82); margin-bottom:1rem;">
+          <p class="footer-desc">
             Cada barrio tiene una historia. Fotografías reales bajo licencia libre de Wikimedia Commons (Archivos de Bogotá y Localidad de Santa Fe).
           </p>
-          <button type="button" class="btn-contribute open-contribute-modal" style="background:var(--brand-yellow); color:var(--brand-black);">
+          <button type="button" class="btn-contribute open-contribute-modal btn-footer-cta">
             + Compartir foto o testimonio
           </button>
         </div>
