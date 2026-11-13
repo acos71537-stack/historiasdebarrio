@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personajes y testimonios · Historias de Barrio – Los Laches</title>
+  <meta name="description" content="Retratos documentales y testimonios sonoros de sabedoras, maestros y jóvenes muralistas del Barrio Los Laches." />
+  <meta name="theme-color" content="#020202" />
+
+  <!-- Tipografías del Proyecto: Lilita One (Títulos), Nunito Sans (Cuerpo) y Montserrat (Auxiliar) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400;1,6..12,600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="Logo%20proyecto_Mesa.png" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <img src="Logo proyecto_Mesa.png" alt="Historias de Barrio · Inicio" class="brand-logo-img" width="2000"
+          height="1400" />
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-links" id="main-nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="mapa-cultural.html">Mapa cultural</a></li>
+          <li><a href="personajes.html" class="active" aria-current="true">Personajes</a></li>
+          <li><a href="oficios.html">Oficios</a></li>
+          <li><a href="lugares.html">Lugares</a></li>
+          <li><a href="tradiciones.html">Tradiciones</a></li>
+          <li><a href="archivo.html">Archivo</a></li>
+          <li class="nav-cta-item">
+            <button type="button" class="btn btn-accent btn-block open-contribute-modal">+ Contar mi historia</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-primary nav-cta open-contribute-modal">+ Contar mi historia</button>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación"
+          aria-expanded="false" aria-controls="main-nav-links">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+        <section class="content-section characters-section" id="personajes" aria-labelledby="personajes-title">
+          <div class="container">
+            <header class="section-head">
+              <div>
+                <p class="section-badge badge-personajes"><span aria-hidden="true">👤</span> 02 · Personajes del barrio
+                </p>
+                <h2 class="section-title" id="personajes-title">Voces y rostros que forjaron Los Laches</h2>
+              </div>
+              <p class="section-head-desc">
+                Retratos documentales y testimonios en primera persona de las sabedoras culinarias, los maestros
+                fundadores
+                y la juventud artística de la Localidad de Santa Fe.
+              </p>
+            </header>
+
+            <div class="reportage">
+              <article class="reportage-item" data-searchable>
+                <figure class="reportage-portrait">
+                  <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Do%C3%B1a_Tere,_Chichera_en_la_Perseverancia.jpg?width=900"
+                    alt="Retrato documental de sabedora tradicional en los cerros de la Localidad de Santa Fe, Bogotá"
+                    loading="lazy" decoding="async" />
+                  <figcaption class="character-role-badge">Sabedora Culinaria y Lideresa Barrial</figcaption>
+                </figure>
+                <div class="reportage-body">
+                  <span class="reportage-index" aria-hidden="true">01</span>
+                  <h3 class="character-name">Doña Mercedes y las Sabedoras del Maíz</h3>
+                  <blockquote class="character-testimony">
+                    “Nuestras madres trajeron de Boyacá el secreto de los envueltos de mazorca, la chicha de maíz y el
+                    cuchuco con espinazo. En nuestros fogones han comido desde los obreros que abrieron las vías hasta
+                    los
+                    niños de las comparsas.”
+                  </blockquote>
+                  <p class="character-bio">
+                    Guardianas de la cocina tradicional cundiboyacense en los barrios altos de la Localidad de Santa Fe
+                    y
+                    lideresas de las ollas comunitarias dominicales.
+                  </p>
+                  <div class="reportage-actions">
+                    <div class="audio-player-pill" data-audio="audios/dona_mercedes.wav">
+                      <button type="button" class="audio-play-btn"
+                        aria-label="Escuchar testimonio de Doña Mercedes">▶</button>
+                      <div class="waveform-bars" aria-hidden="true">
+                        <span class="bar-h65"></span><span class="bar-h45"></span><span class="bar-h80"></span>
+                        <span class="bar-h60"></span><span class="bar-h95"></span><span class="bar-h50"></span>
+                        <span class="bar-h75"></span><span class="bar-h40"></span><span class="bar-h85"></span>
+                      </div>
+                      <span class="audio-time">00:15</span>
+                    </div>
+                    <button type="button" class="btn-link" data-story="mercedes">Leer historia <span
+                        aria-hidden="true">→</span></button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="reportage-item" data-searchable>
+                <figure class="reportage-portrait">
+                  <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogot%C3%A1_Plaza_de_mercado_de_Las_Cruces.JPG?width=1100"
+                    alt="Fotografía del entorno comercial e histórico tradicional del centro-oriente de Bogotá"
+                    loading="lazy" decoding="async" />
+                  <figcaption class="character-role-badge">Maestro Chircalero · Fundador (1958)</figcaption>
+                </figure>
+                <div class="reportage-body">
+                  <span class="reportage-index" aria-hidden="true">02</span>
+                  <h3 class="character-name">Don Josué Cárdenas (81 años)</h3>
+                  <blockquote class="character-testimony">
+                    “Llegamos cuando toda esta loma de Los Laches eran hornos de ladrillo y cantera. Pisábamos el barro
+                    descalzos al amanecer, y los domingos en convite levantábamos la casa del vecino. El barrio se hizo
+                    a
+                    pulso y hermandad.”
+                  </blockquote>
+                  <p class="character-bio">
+                    Trabajó durante 28 años en los antiguos chircales de la parte alta de Santa Fe y lideró la primera
+                    Junta
+                    Pro-Acueducto comunitario del barrio.
+                  </p>
+                  <div class="reportage-actions">
+                    <div class="audio-player-pill" data-audio="audios/don_josue.wav">
+                      <button type="button" class="audio-play-btn"
+                        aria-label="Escuchar testimonio de Don Josué">▶</button>
+                      <div class="waveform-bars" aria-hidden="true">
+                        <span class="bar-h40"></span><span class="bar-h85"></span><span class="bar-h55"></span>
+                        <span class="bar-h95"></span><span class="bar-h50"></span><span class="bar-h75"></span>
+                        <span class="bar-h60"></span><span class="bar-h90"></span><span class="bar-h45"></span>
+                      </div>
+                      <span class="audio-time">00:16</span>
+                    </div>
+                    <button type="button" class="btn-link" data-story="chircal">Leer historia de los chircales <span
+                        aria-hidden="true">→</span></button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="reportage-item" data-searchable>
+                <figure class="reportage-portrait">
+                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mural_en_San_Victorino.jpg?width=900"
+                    alt="Fotografía de muralismo y arte urbano en el centro de Bogotá" loading="lazy"
+                    decoding="async" />
+                  <figcaption class="character-role-badge">Muralismo y Gestión Cultural Juvenil</figcaption>
+                </figure>
+                <div class="reportage-body">
+                  <span class="reportage-index" aria-hidden="true">03</span>
+                  <h3 class="character-name">Colectivo Juvenil “Memoria de la Loma”</h3>
+                  <blockquote class="character-testimony">
+                    “Crecimos escuchando estigmas sobre nuestro barrio, pero decidimos pintar en las fachadas de Los
+                    Laches
+                    el rostro de nuestras abuelas, la cosmogonía indígena Lache y las aves de los Cerros Orientales.”
+                  </blockquote>
+                  <p class="character-bio">
+                    Jóvenes artistas que dirigen talleres de muralismo, hip-hop pedagógico, huertas urbanas y cine al
+                    aire
+                    libre en las escaleras del barrio.
+                  </p>
+                  <div class="reportage-actions">
+                    <div class="audio-player-pill" data-audio="audios/valentina_jovenes.wav">
+                      <button type="button" class="audio-play-btn"
+                        aria-label="Escuchar testimonio del colectivo juvenil">▶</button>
+                      <div class="waveform-bars" aria-hidden="true">
+                        <span class="bar-h50"></span><span class="bar-h90"></span><span class="bar-h65"></span>
+                        <span class="bar-h40"></span><span class="bar-h85"></span><span class="bar-h70"></span>
+                        <span class="bar-h95"></span><span class="bar-h55"></span><span class="bar-h60"></span>
+                      </div>
+                      <span class="audio-time">00:14</span>
+                    </div>
+                    <a href="#tradiciones" class="btn-link">Ver murales en Tradiciones <span
+                        aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL · CRÓNICA
+       ======================================================================== -->
+  <div class="modal-backdrop" id="story-modal" role="dialog" aria-modal="true" aria-labelledby="modal-story-title" hidden>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar crónica">✕</button>
+      <p id="modal-story-cat" class="section-badge badge-oficios">Crónica Barrial</p>
+      <h2 id="modal-story-title" class="modal-story-title">Título de la historia</h2>
+      <p id="modal-story-coords" class="map-detail-coords modal-story-coords"></p>
+      <div class="modal-story-media">
+        <img id="modal-story-img" class="modal-story-img"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_La_Pe%C3%B1a_1.jpg?width=900" alt=""
+          loading="lazy" decoding="async" />
+      </div>
+      <div id="modal-story-body" class="modal-story-body"></div>
+      <blockquote id="modal-story-quote" class="modal-story-quote"></blockquote>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL · APORTE COMUNITARIO
+       ======================================================================== -->
+  <div class="modal-backdrop" id="contribute-modal" role="dialog" aria-modal="true"
+    aria-labelledby="contribute-modal-title" hidden>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar formulario">✕</button>
+      <p class="section-badge badge-mapa">Participación comunitaria</p>
+      <h2 id="contribute-modal-title" class="contribute-modal-title">Suma tu recuerdo a la memoria de Los Laches</h2>
+      <p class="contribute-modal-desc">
+        ¿Tienes una fotografía familiar en los antiguos chircales, conoces un oficio tradicional o quieres postular a un
+        vecino ejemplar de la Localidad de Santa Fe?
+      </p>
+
+      <form id="contribute-form" class="contribute-form" novalidate>
+        <div class="form-field">
+          <label for="contribute-name" class="form-label">Tu nombre y cuadra / sector en Los Laches <span
+              aria-hidden="true">*</span></label>
+          <input id="contribute-name" name="name" type="text" required minlength="3" autocomplete="name"
+            placeholder="Ej. Familia Morales · Sector La Peña / Calle 3 Este" class="form-control"
+            aria-describedby="contribute-name-error" />
+          <p class="form-error" id="contribute-name-error" hidden>Escribe tu nombre y sector (mínimo 3 caracteres).</p>
+        </div>
+        <div class="form-field">
+          <label for="contribute-category" class="form-label">Categoría del aporte</label>
+          <select id="contribute-category" name="category" class="form-control form-select">
+            <option value="personajes">Personajes (Retrato o testimonio)</option>
+            <option value="oficios">Oficios (Trabajadores y negocios tradicionales)</option>
+            <option value="lugares">Lugares (Espacios significativos)</option>
+            <option value="tradiciones">Tradiciones (Fiestas y costumbres)</option>
+            <option value="archivo">Archivo (Fotografía antigua o actual)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="contribute-story" class="form-label">Relata la historia o recuerdo <span
+              aria-hidden="true">*</span></label>
+          <textarea id="contribute-story" name="story" rows="4" required minlength="20"
+            placeholder="Cuéntanos en qué año ocurrió, quiénes aparecen y por qué es importante para el barrio..."
+            class="form-control" aria-describedby="contribute-story-error"></textarea>
+          <p class="form-error" id="contribute-story-error" hidden>Cuéntanos la historia con al menos 20 caracteres.</p>
+        </div>
+        <p class="form-hint">Los campos marcados con * son obligatorios.</p>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar aporte al comité de memoria
+          barrial</button>
+        <p id="contribute-feedback" class="contribute-feedback" role="status" hidden>
+          ¡Gracias vecino(a)! Tu historia ha sido registrada para el archivo comunitario del Barrio Los Laches.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL · IMAGEN AMPLIADA (ARCHIVO)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="lightbox-modal" role="dialog" aria-modal="true"
+    aria-label="Imagen ampliada del archivo" hidden>
+    <div class="modal-dialog lightbox-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar imagen ampliada">✕</button>
+      <figure class="lightbox-figure" id="lightbox-figure">
+        <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       H. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="Logo proyecto_Mesa.png" alt="Historias de Barrio" class="footer-logo-img" width="2000" height="1400"
+            loading="lazy" />
+          <p class="footer-desc">
+            Plataforma digital de patrimonio vivo para descubrir, conservar y compartir las historias, personajes,
+            oficios chircaleros, lugares y tradiciones que dan vida al Barrio Los Laches en los Cerros Orientales de
+            Bogotá.
+          </p>
+          <p class="footer-location-tag">Localidad 3: Santa Fe · UPZ 96 Lourdes · Bogotá D.C., Colombia</p>
+        </div>
+
+        <nav class="footer-col" aria-labelledby="footer-nav-hitos">
+          <h2 class="footer-heading" id="footer-nav-hitos">Hitos en Google Maps</h2>
+          <ul class="footer-links">
+            <li><a href="mapa-cultural.html?punto=piedraAmor" data-goto-map="piedraAmor">Mirador La Piedra del Amor</a></li>
+            <li><a href="mapa-cultural.html?punto=capilla" data-goto-map="capilla">Santuario Nuestra Señora de la Peña</a></li>
+            <li><a href="mapa-cultural.html?punto=chircal" data-goto-map="chircal">Memoria de los Chircales</a></li>
+            <li><a href="mapa-cultural.html?punto=carpinteria" data-goto-map="carpinteria">Carpintería de Don Manuel</a></li>
+            <li><a href="mapa-cultural.html?punto=carnaval" data-goto-map="carnaval">Carnaval de la Montaña</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h2 class="footer-heading">Construcción colectiva</h2>
+          <p class="footer-desc">
+            Cada barrio tiene una historia. Fotografías reales bajo licencia libre de Wikimedia Commons (Archivos de
+            Bogotá y Localidad de Santa Fe).
+          </p>
+          <button type="button" class="btn btn-accent open-contribute-modal">+ Compartir foto o testimonio</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Historias de Barrio — Capítulo Barrio Los Laches (Localidad de Santa Fe, Bogotá D.C.).</p>
+        <p>Cartografía en vivo con Google Maps · Fotografías reales de Bogotá (Wikimedia Commons).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=4"></script>
+</body>
+
+</html>

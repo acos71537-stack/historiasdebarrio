@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa cultural · Historias de Barrio – Los Laches</title>
+  <meta name="description" content="Mapa cultural interactivo en Google Maps con los hitos históricos, oficios y lugares significativos del Barrio Los Laches." />
+  <meta name="theme-color" content="#020202" />
+
+  <!-- Tipografías del Proyecto: Lilita One (Títulos), Nunito Sans (Cuerpo) y Montserrat (Auxiliar) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400;1,6..12,600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="Logo%20proyecto_Mesa.png" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <img src="Logo proyecto_Mesa.png" alt="Historias de Barrio · Inicio" class="brand-logo-img" width="2000"
+          height="1400" />
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-links" id="main-nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="mapa-cultural.html" class="active" aria-current="true">Mapa cultural</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="oficios.html">Oficios</a></li>
+          <li><a href="lugares.html">Lugares</a></li>
+          <li><a href="tradiciones.html">Tradiciones</a></li>
+          <li><a href="archivo.html">Archivo</a></li>
+          <li class="nav-cta-item">
+            <button type="button" class="btn btn-accent btn-block open-contribute-modal">+ Contar mi historia</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-primary nav-cta open-contribute-modal">+ Contar mi historia</button>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación"
+          aria-expanded="false" aria-controls="main-nav-links">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+        <section class="content-section map-section" id="mapa-cultural" aria-labelledby="mapa-title">
+          <div class="container">
+            <header class="section-head">
+              <div>
+                <p class="section-badge badge-mapa"><span aria-hidden="true">🗺️</span> 01 · Mapa cultural</p>
+                <h2 class="section-title" id="mapa-title">Explora el Barrio Los Laches en Google Maps</h2>
+              </div>
+              <p class="section-head-desc">
+                Navega directamente por las calles reales del <strong>Barrio Los Laches (Localidad de Santa Fe,
+                  Bogotá)</strong>. Haz clic en cualquier hito o categoría para centrar <strong>Google Maps</strong> y
+                leer
+                su historia.
+              </p>
+            </header>
+
+            <div class="map-toolbar">
+              <div class="map-search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <label for="map-internal-search" class="visually-hidden">Buscar calle o lugar en Los Laches</label>
+                <input type="search" id="map-internal-search" placeholder="Buscar calle o lugar en Los Laches…"
+                  autocomplete="off" />
+              </div>
+
+              <div class="map-filter-list" role="group" aria-label="Filtrar puntos por categoría">
+                <button type="button" class="map-filter-btn active" data-filter="todos" aria-pressed="true">
+                  <span class="dot dot-mapa" aria-hidden="true"></span>Vista general <span class="filter-count">7</span>
+                </button>
+                <button type="button" class="map-filter-btn" data-filter="lugares" aria-pressed="false">
+                  <span class="dot dot-lugares" aria-hidden="true"></span>Lugares <span class="filter-count">2</span>
+                </button>
+                <button type="button" class="map-filter-btn" data-filter="oficios" aria-pressed="false">
+                  <span class="dot dot-oficios" aria-hidden="true"></span>Oficios <span class="filter-count">2</span>
+                </button>
+                <button type="button" class="map-filter-btn" data-filter="personajes" aria-pressed="false">
+                  <span class="dot dot-personajes" aria-hidden="true"></span>Personajes <span
+                    class="filter-count">1</span>
+                </button>
+                <button type="button" class="map-filter-btn" data-filter="tradiciones" aria-pressed="false">
+                  <span class="dot dot-tradiciones" aria-hidden="true"></span>Tradiciones <span
+                    class="filter-count">1</span>
+                </button>
+                <button type="button" class="map-filter-btn" data-filter="archivo" aria-pressed="false">
+                  <span class="dot dot-archivo" aria-hidden="true"></span>Archivo <span class="filter-count">1</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="map-explorer-layout">
+              <div class="map-column-main">
+                <div class="google-map-wrapper">
+                <div class="map-type-toggle" role="group" aria-label="Tipo de vista de Google Maps">
+                  <button type="button" class="map-type-btn active" data-maptype="m" aria-pressed="true">Mapa</button>
+                  <button type="button" class="map-type-btn" data-maptype="k" aria-pressed="false">Satélite</button>
+                </div>
+
+                <div class="map-loading" id="map-loading" role="status">
+                  <span class="spinner" aria-hidden="true"></span>
+                  <span>Cargando mapa…</span>
+                </div>
+
+                <iframe id="laches-google-map" class="google-map-iframe"
+                  title="Mapa cultural del Barrio Los Laches en Google Maps" loading="lazy" allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=Barrio+Los+Laches,+Santa+Fe,+Bogota&t=m&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+
+                <div class="map-Quick-pois-bar" role="group" aria-label="Puntos culturales del barrio">
+                  <button type="button" class="poi-chip-btn active" data-point="piedraAmor" data-cat="lugares"
+                    aria-pressed="true">
+                    <span class="dot dot-lugares" aria-hidden="true"></span>Mirador Piedra del Amor
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="capilla" data-cat="lugares"
+                    aria-pressed="false">
+                    <span class="dot dot-lugares" aria-hidden="true"></span>Iglesia Nuestra Señora de la Peña
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="chircal" data-cat="oficios"
+                    aria-pressed="false">
+                    <span class="dot dot-oficios" aria-hidden="true"></span>Antiguos Chircales
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="carpinteria" data-cat="oficios"
+                    aria-pressed="false">
+                    <span class="dot dot-oficios" aria-hidden="true"></span>Carpintería Cra. 9 Este
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="mercedes" data-cat="personajes"
+                    aria-pressed="false">
+                    <span class="dot dot-personajes" aria-hidden="true"></span>Plazoleta y Fogón Comunitario
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="carnaval" data-cat="tradiciones"
+                    aria-pressed="false">
+                    <span class="dot dot-tradiciones" aria-hidden="true"></span>Corredor del Carnaval
+                  </button>
+                  <button type="button" class="poi-chip-btn" data-point="autoconstruccion" data-cat="archivo"
+                    aria-pressed="false">
+                    <span class="dot dot-archivo" aria-hidden="true"></span>Escaleras Fundacionales
+                  </button>
+                  <p class="poi-empty" id="poi-empty" hidden>Sin coincidencias entre los puntos culturales. Presiona
+                    Enter
+                    para buscar la dirección en Google Maps.</p>
+                </div>
+              </div>
+
+              <p class="map-limits-note">
+                <strong>Límites del barrio:</strong> al oriente de la Av. Circunvalar, entre el Barrio El Consuelo / Rocas
+                al norte, el Barrio Egipto al occidente, el Santuario de Nuestra Señora de la Peña al sur y la Reserva
+                Forestal Protectora Bosque Oriental de Bogotá al oriente.
+              </p>
+              </div>
+
+              <aside class="map-detail-panel" aria-live="polite" aria-labelledby="map-detail-title">
+                <div class="map-detail-media">
+                  <img id="map-detail-img" class="map-detail-img"
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerros_orientales,_Bogot%C3%A1.jpg?width=1000"
+                    alt="Vista real de los Cerros Orientales en el sector de Los Laches, Bogotá" loading="lazy"
+                    decoding="async" />
+                </div>
+                <div>
+                  <p id="map-detail-cat" class="tag" data-cat="lugares">Lugar Emblemático · Mirador Natural</p>
+                  <h3 id="map-detail-title" class="map-detail-heading">Mirador La Piedra del Amor (Rocas de Los Laches)
+                  </h3>
+                  <p id="map-detail-coords" class="map-detail-coords">4.5894° N, 74.0612° W · Parte Alta Barrio Los
+                    Laches,
+                    Santa Fe</p>
+                </div>
+                <p id="map-detail-desc" class="map-detail-desc">
+                  A más de 2.750 metros sobre el nivel del mar en los Cerros Orientales, estas formaciones rocosas
+                  ancestrales ofrecen una de las panorámicas reales más sobrecogedoras de Bogotá. Ha sido punto de
+                  encuentro
+                  de caminantes ecológicos, jóvenes del barrio y rituales de memoria muisca y lache.
+                </p>
+                <blockquote id="map-detail-quote" class="map-detail-quote">
+                  “Subir a la Piedra del Amor al atardecer es entender que Los Laches es el balcón donde Bogotá conversa
+                  con
+                  la montaña.”
+                </blockquote>
+                <div class="map-detail-actions">
+                  <button type="button" id="map-detail-modal-btn" class="btn btn-primary btn-block"
+                    data-story="piedraAmor">
+                    Leer crónica completa <span aria-hidden="true">→</span>
+                  </button>
+                  <a id="open-in-gmaps-link" class="open-in-gmaps-link"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=Barrio+Los+Laches,+Santa+Fe,+Bogota"
+                    target="_blank" rel="noopener noreferrer">
+                    Abrir ubicación en Google Maps <span aria-hidden="true">↗</span><span class="visually-hidden"> (se
+                      abre
+                      en una pestaña nueva)</span>
+                  </a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL · CRÓNICA
+       ======================================================================== -->
+  <div class="modal-backdrop" id="story-modal" role="dialog" aria-modal="true" aria-labelledby="modal-story-title" hidden>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar crónica">✕</button>
+      <p id="modal-story-cat" class="section-badge badge-oficios">Crónica Barrial</p>
+      <h2 id="modal-story-title" class="modal-story-title">Título de la historia</h2>
+      <p id="modal-story-coords" class="map-detail-coords modal-story-coords"></p>
+      <div class="modal-story-media">
+        <img id="modal-story-img" class="modal-story-img"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_La_Pe%C3%B1a_1.jpg?width=900" alt=""
+          loading="lazy" decoding="async" />
+      </div>
+      <div id="modal-story-body" class="modal-story-body"></div>
+      <blockquote id="modal-story-quote" class="modal-story-quote"></blockquote>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL · APORTE COMUNITARIO
+       ======================================================================== -->
+  <div class="modal-backdrop" id="contribute-modal" role="dialog" aria-modal="true"
+    aria-labelledby="contribute-modal-title" hidden>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar formulario">✕</button>
+      <p class="section-badge badge-mapa">Participación comunitaria</p>
+      <h2 id="contribute-modal-title" class="contribute-modal-title">Suma tu recuerdo a la memoria de Los Laches</h2>
+      <p class="contribute-modal-desc">
+        ¿Tienes una fotografía familiar en los antiguos chircales, conoces un oficio tradicional o quieres postular a un
+        vecino ejemplar de la Localidad de Santa Fe?
+      </p>
+
+      <form id="contribute-form" class="contribute-form" novalidate>
+        <div class="form-field">
+          <label for="contribute-name" class="form-label">Tu nombre y cuadra / sector en Los Laches <span
+              aria-hidden="true">*</span></label>
+          <input id="contribute-name" name="name" type="text" required minlength="3" autocomplete="name"
+            placeholder="Ej. Familia Morales · Sector La Peña / Calle 3 Este" class="form-control"
+            aria-describedby="contribute-name-error" />
+          <p class="form-error" id="contribute-name-error" hidden>Escribe tu nombre y sector (mínimo 3 caracteres).</p>
+        </div>
+        <div class="form-field">
+          <label for="contribute-category" class="form-label">Categoría del aporte</label>
+          <select id="contribute-category" name="category" class="form-control form-select">
+            <option value="personajes">Personajes (Retrato o testimonio)</option>
+            <option value="oficios">Oficios (Trabajadores y negocios tradicionales)</option>
+            <option value="lugares">Lugares (Espacios significativos)</option>
+            <option value="tradiciones">Tradiciones (Fiestas y costumbres)</option>
+            <option value="archivo">Archivo (Fotografía antigua o actual)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="contribute-story" class="form-label">Relata la historia o recuerdo <span
+              aria-hidden="true">*</span></label>
+          <textarea id="contribute-story" name="story" rows="4" required minlength="20"
+            placeholder="Cuéntanos en qué año ocurrió, quiénes aparecen y por qué es importante para el barrio..."
+            class="form-control" aria-describedby="contribute-story-error"></textarea>
+          <p class="form-error" id="contribute-story-error" hidden>Cuéntanos la historia con al menos 20 caracteres.</p>
+        </div>
+        <p class="form-hint">Los campos marcados con * son obligatorios.</p>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar aporte al comité de memoria
+          barrial</button>
+        <p id="contribute-feedback" class="contribute-feedback" role="status" hidden>
+          ¡Gracias vecino(a)! Tu historia ha sido registrada para el archivo comunitario del Barrio Los Laches.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL · IMAGEN AMPLIADA (ARCHIVO)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="lightbox-modal" role="dialog" aria-modal="true"
+    aria-label="Imagen ampliada del archivo" hidden>
+    <div class="modal-dialog lightbox-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Cerrar imagen ampliada">✕</button>
+      <figure class="lightbox-figure" id="lightbox-figure">
+        <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       H. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="Logo proyecto_Mesa.png" alt="Historias de Barrio" class="footer-logo-img" width="2000" height="1400"
+            loading="lazy" />
+          <p class="footer-desc">
+            Plataforma digital de patrimonio vivo para descubrir, conservar y compartir las historias, personajes,
+            oficios chircaleros, lugares y tradiciones que dan vida al Barrio Los Laches en los Cerros Orientales de
+            Bogotá.
+          </p>
+          <p class="footer-location-tag">Localidad 3: Santa Fe · UPZ 96 Lourdes · Bogotá D.C., Colombia</p>
+        </div>
+
+        <nav class="footer-col" aria-labelledby="footer-nav-hitos">
+          <h2 class="footer-heading" id="footer-nav-hitos">Hitos en Google Maps</h2>
+          <ul class="footer-links">
+            <li><a href="mapa-cultural.html?punto=piedraAmor" data-goto-map="piedraAmor">Mirador La Piedra del Amor</a></li>
+            <li><a href="mapa-cultural.html?punto=capilla" data-goto-map="capilla">Santuario Nuestra Señora de la Peña</a></li>
+            <li><a href="mapa-cultural.html?punto=chircal" data-goto-map="chircal">Memoria de los Chircales</a></li>
+            <li><a href="mapa-cultural.html?punto=carpinteria" data-goto-map="carpinteria">Carpintería de Don Manuel</a></li>
+            <li><a href="mapa-cultural.html?punto=carnaval" data-goto-map="carnaval">Carnaval de la Montaña</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h2 class="footer-heading">Construcción colectiva</h2>
+          <p class="footer-desc">
+            Cada barrio tiene una historia. Fotografías reales bajo licencia libre de Wikimedia Commons (Archivos de
+            Bogotá y Localidad de Santa Fe).
+          </p>
+          <button type="button" class="btn btn-accent open-contribute-modal">+ Compartir foto o testimonio</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Historias de Barrio — Capítulo Barrio Los Laches (Localidad de Santa Fe, Bogotá D.C.).</p>
+        <p>Cartografía en vivo con Google Maps · Fotografías reales de Bogotá (Wikimedia Commons).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=4"></script>
+</body>
+
+</html>

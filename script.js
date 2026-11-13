@@ -100,32 +100,44 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   const pillarCharProfiles = [
     {
+      name: 'Doña Mercedes — Cocinera tradicional y gestora cultural',
+      bio: 'Guardián de las recetas de maíz, los convites comunitarios y la memoria culinaria de Los Laches.',
       img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Do%C3%B1a_Tere,_Chichera_en_la_Perseverancia.jpg?width=800',
       quote: '“Con una olla comunitaria, envueltos de maíz y chicha tradicional levantamos los convites de toda nuestra cuadra.”',
       author: '— Doña Mercedes, sabedora de Santa Fe',
       duration: '00:15',
-      audioSrc: 'audios/dona_mercedes.wav'
+      audioSrc: 'audios/dona_mercedes.wav',
+      storyKey: 'mercedes'
     },
     {
+      name: 'Don Josué — Maestro chircalero de los cerros',
+      bio: 'Su familia moldeó y cocinó el barro de los cerros orientales para levantar las primeras casas del barrio.',
       img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bogot%C3%A1_Plaza_de_mercado_de_Las_Cruces.JPG?width=800',
       quote: '“El barrio me enseñó a valorar lo que uno hace con las manos, desde amasar el barro hasta levantar cada pared en la loma.”',
       author: '— Don Josué, maestro chircalero',
       duration: '00:16',
-      audioSrc: 'audios/don_josue.wav'
+      audioSrc: 'audios/don_josue.wav',
+      storyKey: 'chircal'
     },
     {
+      name: 'Valentina — Muralista y gestora juvenil',
+      bio: 'Lidera recorridos culturales y murales comunitarios que narran la historia viva de Los Laches.',
       img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mural_en_San_Victorino.jpg?width=800',
       quote: '“Pintar los muros de Los Laches es contarle a Bogotá que en los Cerros Orientales florece el arte y la vida.”',
       author: '— Valentina, muralista comunitaria',
       duration: '00:14',
-      audioSrc: 'audios/valentina_jovenes.wav'
+      audioSrc: 'audios/valentina_jovenes.wav',
+      storyKey: 'carnaval'
     }
   ];
 
   const mainCharImg = document.getElementById('pillar-char-main-img');
+  const mainCharName = document.getElementById('featured-name');
+  const mainCharBio = document.getElementById('featured-bio');
   const mainCharQuote = document.getElementById('pillar-char-quote');
   const mainCharAuthor = document.getElementById('pillar-char-author');
   const mainCharTime = document.getElementById('pillar-char-time');
+  const featuredStoryLink = document.getElementById('featured-story-link');
   const pillarAudioPill = document.getElementById('pillar-audio-player');
   const thumbBtns = document.querySelectorAll('.char-thumb-btn');
 
@@ -152,7 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     audioPills.forEach(p => {
       p.classList.remove('playing');
       const pBtn = p.querySelector('.audio-play-btn');
-      if (pBtn) pBtn.innerHTML = '▶';
+      if (pBtn) {
+        pBtn.textContent = '▶';
+        pBtn.setAttribute('aria-pressed', 'false');
+      }
     });
     currentActivePill = null;
   }
@@ -165,7 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentActivePill = pill;
     pill.classList.add('playing');
-    if (btn) btn.innerHTML = '❚❚';
+    if (btn) {
+      btn.textContent = '❚❚';
+      btn.setAttribute('aria-pressed', 'true');
+    }
 
     sharedAudio.src = audioFile;
     sharedAudio.currentTime = 0;
@@ -173,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sharedAudio.play().catch(() => {
       // Fallback con Web Speech API en español si el navegador bloquea archivos locales
       if ('speechSynthesis' in window) {
-        const card = pill.closest('article');
+        const card = pill.closest('article, section');
         const quoteText = card ? card.textContent : 'Testimonio del barrio Los Laches en la localidad de Santa Fe, Bogotá.';
         const utterance = new SpeechSynthesisUtterance(quoteText);
         utterance.lang = 'es-CO';
@@ -216,20 +234,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   thumbBtns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
-      thumbBtns.forEach(b => b.classList.remove('active'));
+      thumbBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
       const data = pillarCharProfiles[idx];
-      if (data && mainCharImg) {
+      if (!data) return;
+
+      if (mainCharImg) {
         mainCharImg.src = data.img;
-        mainCharQuote.textContent = data.quote;
-        mainCharAuthor.textContent = data.author;
-        mainCharTime.textContent = data.duration;
-        if (pillarAudioPill) {
-          const wasPlaying = currentActivePill === pillarAudioPill;
-          pillarAudioPill.dataset.audio = data.audioSrc;
-          if (wasPlaying) {
-            playTestimonyOnPill(pillarAudioPill);
-          }
+        mainCharImg.alt = data.name;
+      }
+      if (mainCharName) mainCharName.textContent = data.name;
+      if (mainCharBio) mainCharBio.textContent = data.bio;
+      if (mainCharQuote) mainCharQuote.textContent = data.quote;
+      if (mainCharAuthor) mainCharAuthor.textContent = data.author;
+      if (mainCharTime) mainCharTime.textContent = data.duration;
+      if (featuredStoryLink) featuredStoryLink.dataset.story = data.storyKey;
+
+      if (pillarAudioPill) {
+        const wasPlaying = currentActivePill === pillarAudioPill;
+        pillarAudioPill.dataset.audio = data.audioSrc;
+        if (wasPlaying) {
+          playTestimonyOnPill(pillarAudioPill);
         }
       }
     });
@@ -238,27 +268,29 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
      4. SLIDERS DE COMPARACIÓN ANTES / DESPUÉS (MINI Y GRANDE)
      -------------------------------------------------------------------------- */
-  function setupComparisonSlider(sliderId, beforeLayerId, dividerId) {
+  function setupComparisonSlider(sliderId, containerSelector) {
     const slider = document.getElementById(sliderId);
-    const beforeLayer = document.getElementById(beforeLayerId);
-    const divider = document.getElementById(dividerId);
+    if (!slider) return;
+    const container = slider.closest(containerSelector);
+    if (!container) return;
 
-    if (!slider || !beforeLayer || !divider) return;
+    const updatePos = (val) => {
+      container.style.setProperty('--compare-pos', `${val}%`);
+    };
 
-    slider.addEventListener('input', (e) => {
-      const val = e.target.value;
-      beforeLayer.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-      divider.style.left = `${val}%`;
-    });
+    updatePos(slider.value || 50);
+    slider.addEventListener('input', (e) => updatePos(e.target.value));
   }
 
-  setupComparisonSlider('mini-compare-range', 'mini-before-img', 'mini-compare-line');
-  setupComparisonSlider('large-compare-range', 'large-before-img', 'large-compare-line');
+  setupComparisonSlider('mini-compare-range', '.mini-compare-wrapper');
+  setupComparisonSlider('large-compare-range', '.large-compare-stage');
 
   /* --------------------------------------------------------------------------
      5. GOOGLE MAPS INTERACTIVO DEL BARRIO LOS LACHES
      -------------------------------------------------------------------------- */
   const googleMapIframe = document.getElementById('laches-google-map');
+  const mapLoading = document.getElementById('map-loading');
+  const poiEmptyMsg = document.getElementById('poi-empty');
   const mapFilterBtns = document.querySelectorAll('.map-filter-btn');
   const poiChips = document.querySelectorAll('.poi-chip-btn');
   const mapTypeBtns = document.querySelectorAll('.map-type-btn');
@@ -273,16 +305,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailModalBtn = document.getElementById('map-detail-modal-btn');
   const externalGmapsLink = document.getElementById('open-in-gmaps-link');
 
-  let currentMapType = 'm'; // 'm' = Mapa estándar, 'k' = Satélite
+  let currentMapType = 'm';
   let currentPointKey = 'piedraAmor';
+  let currentMapFilter = 'todos';
+  let mapLoadTimeout = null;
+
+  if (googleMapIframe) {
+    googleMapIframe.addEventListener('load', () => {
+      if (mapLoading) mapLoading.hidden = true;
+      if (mapLoadTimeout) clearTimeout(mapLoadTimeout);
+    });
+  }
 
   function updateGoogleMapEmbed(query, zoom = 17) {
     if (!googleMapIframe) return;
+    if (mapLoading) {
+      mapLoading.hidden = false;
+      if (mapLoadTimeout) clearTimeout(mapLoadTimeout);
+      mapLoadTimeout = setTimeout(() => {
+        mapLoading.hidden = true;
+      }, 3500);
+    }
     const url = `https://maps.google.com/maps?q=${query}&t=${currentMapType}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
     googleMapIframe.src = url;
     if (externalGmapsLink) {
       externalGmapsLink.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
     }
+  }
+
+  function applyMapFilters() {
+    const query = mapSearchInput ? mapSearchInput.value.toLowerCase().trim() : '';
+    let visibleCount = 0;
+    let firstMatchKey = null;
+
+    poiChips.forEach(chip => {
+      const catMatch = currentMapFilter === 'todos' || chip.dataset.cat === currentMapFilter;
+      const pointData = lachesPoints[chip.dataset.point];
+      const textSource = `${chip.textContent} ${pointData ? `${pointData.title} ${pointData.summary} ${pointData.categoryLabel}` : ''}`.toLowerCase();
+      const searchMatch = !query || textSource.includes(query);
+      const isVisible = catMatch && searchMatch;
+
+      chip.classList.toggle('is-filtered-out', !isVisible);
+      if (isVisible) {
+        visibleCount++;
+        if (!firstMatchKey) firstMatchKey = chip.dataset.point;
+      }
+    });
+
+    if (poiEmptyMsg) {
+      poiEmptyMsg.hidden = visibleCount > 0;
+    }
+
+    return firstMatchKey;
   }
 
   function selectMapPoint(pointKey) {
@@ -291,11 +365,19 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPointKey = pointKey;
 
     poiChips.forEach(chip => {
-      chip.classList.toggle('active', chip.dataset.point === pointKey);
+      const isCurrent = chip.dataset.point === pointKey;
+      chip.classList.toggle('active', isCurrent);
+      chip.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
     });
 
-    if (detailImg) detailImg.src = data.image;
-    if (detailCat) detailCat.textContent = data.categoryLabel;
+    if (detailImg) {
+      detailImg.src = data.image;
+      detailImg.alt = data.title;
+    }
+    if (detailCat) {
+      detailCat.textContent = data.categoryLabel;
+      detailCat.className = `tag tag-${data.category}`;
+    }
     if (detailTitle) detailTitle.textContent = data.title;
     if (detailCoords) detailCoords.textContent = data.coords;
     if (detailDesc) detailDesc.textContent = data.summary;
@@ -311,11 +393,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cambiar entre Mapa de Calles y Vista Satelital en Google Maps
   mapTypeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      mapTypeBtns.forEach(b => b.classList.remove('active'));
+      mapTypeBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       currentMapType = btn.dataset.maptype;
       const data = lachesPoints[currentPointKey];
       if (data) {
@@ -324,23 +409,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Filtrar chips de lugares por categoría y centrar Google Maps
   mapFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      mapFilterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filterCat = btn.dataset.filter;
-
-      let firstMatchKey = null;
-      poiChips.forEach(chip => {
-        const matches = filterCat === 'todos' || chip.dataset.cat === filterCat;
-        chip.style.display = matches ? 'inline-flex' : 'none';
-        if (matches && !firstMatchKey) {
-          firstMatchKey = chip.dataset.point;
-        }
+      mapFilterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
       });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      currentMapFilter = btn.dataset.filter;
 
-      if (filterCat === 'todos') {
+      const firstMatchKey = applyMapFilters();
+      if (currentMapFilter === 'todos' && (!mapSearchInput || !mapSearchInput.value.trim())) {
         updateGoogleMapEmbed('Barrio+Los+Laches,+Santa+Fe,+Bogota', 16);
       } else if (firstMatchKey) {
         selectMapPoint(firstMatchKey);
@@ -348,31 +428,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Búsqueda directa en Google Maps dentro de Los Laches
   if (mapSearchInput) {
+    mapSearchInput.addEventListener('input', () => {
+      applyMapFilters();
+    });
+
     mapSearchInput.addEventListener('change', (e) => {
       const q = e.target.value.trim();
       if (q) {
         const encoded = encodeURIComponent(`${q}, Barrio Los Laches, Santa Fe, Bogotá`);
         updateGoogleMapEmbed(encoded, 17);
-      } else {
+      } else if (currentMapFilter === 'todos') {
         updateGoogleMapEmbed('Barrio+Los+Laches,+Santa+Fe,+Bogota', 16);
       }
     });
+  }
 
-    mapSearchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      poiChips.forEach(chip => {
-        const data = lachesPoints[chip.dataset.point];
-        const text = `${data.title} ${data.summary} ${data.categoryLabel}`.toLowerCase();
-        chip.style.display = text.includes(q) ? 'inline-flex' : 'none';
-      });
-    });
+  // Leer parámetros ?punto= o ?buscar= al abrir mapa-cultural.html
+  if (googleMapIframe) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialPoint = urlParams.get('punto');
+    const initialSearch = urlParams.get('buscar');
+
+    if (initialPoint && lachesPoints[initialPoint]) {
+      selectMapPoint(initialPoint);
+    } else if (initialSearch) {
+      if (mapSearchInput) {
+        mapSearchInput.value = initialSearch;
+        applyMapFilters();
+      }
+      const encoded = encodeURIComponent(`${initialSearch}, Barrio Los Laches, Santa Fe, Bogotá`);
+      updateGoogleMapEmbed(encoded, 17);
+    }
   }
 
   /* --------------------------------------------------------------------------
-     6. BUSCADOR GLOBAL EN EL HERO ("Buscar en el barrio Los Laches...")
+     6. BUSCADOR GLOBAL EN EL HERO
      -------------------------------------------------------------------------- */
+  const heroSearchForm = document.getElementById('hero-search-form');
   const heroSearchInput = document.getElementById('hero-search-input');
   const heroSearchBtn = document.getElementById('hero-search-btn');
   const searchableCards = document.querySelectorAll('[data-searchable]');
@@ -380,53 +473,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function executeGlobalSearch() {
     if (!heroSearchInput) return;
-    const query = heroSearchInput.value.toLowerCase().trim();
+    const rawQuery = heroSearchInput.value.trim();
+    const query = rawQuery.toLowerCase();
 
     if (!query) {
-      searchableCards.forEach(card => (card.style.display = ''));
-      if (searchStatusBanner) searchStatusBanner.style.display = 'none';
+      searchableCards.forEach(card => card.classList.remove('is-filtered-out'));
+      if (searchStatusBanner) {
+        searchStatusBanner.hidden = true;
+        searchStatusBanner.innerHTML = '';
+      }
       return;
     }
 
     let matchCount = 0;
     searchableCards.forEach(card => {
       const content = card.textContent.toLowerCase();
-      if (content.includes(query)) {
-        card.style.display = '';
-        matchCount++;
-      } else {
-        card.style.display = 'none';
-      }
+      const matches = content.includes(query);
+      card.classList.toggle('is-filtered-out', !matches);
+      if (matches) matchCount++;
     });
 
     if (searchStatusBanner) {
-      searchStatusBanner.style.display = 'flex';
-      searchStatusBanner.innerHTML = `
-        <span>Mostrando <strong>${matchCount}</strong> historias de Los Laches para <em>“${heroSearchInput.value}”</em></span>
-        <button id="clear-search-btn" class="clear-search-btn">Ver todas las historias</button>
-      `;
-      const clearBtn = document.getElementById('clear-search-btn');
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          heroSearchInput.value = '';
-          executeGlobalSearch();
-        });
-      }
+      searchStatusBanner.hidden = false;
+      searchStatusBanner.innerHTML = '';
+
+      const textSpan = document.createElement('span');
+      textSpan.append('Mostrando ');
+      const strong = document.createElement('strong');
+      strong.textContent = String(matchCount);
+      textSpan.append(strong, ' resultados de Los Laches para ');
+      const em = document.createElement('em');
+      em.textContent = `“${rawQuery}”`;
+      textSpan.append(em);
+
+      const clearBtn = document.createElement('button');
+      clearBtn.type = 'button';
+      clearBtn.id = 'clear-search-btn';
+      clearBtn.className = 'btn-link';
+      clearBtn.textContent = 'Ver todo';
+      clearBtn.addEventListener('click', () => {
+        heroSearchInput.value = '';
+        executeGlobalSearch();
+        heroSearchInput.focus();
+      });
+
+      searchStatusBanner.append(textSpan, ' · ', clearBtn);
     }
+  }
+
+  if (heroSearchForm) {
+    heroSearchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = heroSearchInput ? heroSearchInput.value.trim() : '';
+      if (searchableCards.length === 0 && query) {
+        window.location.href = `mapa-cultural.html?buscar=${encodeURIComponent(query)}`;
+        return;
+      }
+      executeGlobalSearch();
+      (searchStatusBanner && !searchStatusBanner.hidden
+        ? searchStatusBanner
+        : document.getElementById('personajes'))?.scrollIntoView({ behavior: 'smooth' });
+    });
   }
 
   if (heroSearchInput) {
     heroSearchInput.addEventListener('input', executeGlobalSearch);
   }
-  if (heroSearchBtn) {
+
+  if (heroSearchBtn && !heroSearchForm) {
     heroSearchBtn.addEventListener('click', () => {
       executeGlobalSearch();
-      document.getElementById('explorar-dimensiones')?.scrollIntoView({ behavior: 'smooth' });
+      (searchStatusBanner && !searchStatusBanner.hidden
+        ? searchStatusBanner
+        : document.getElementById('personajes'))?.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
   /* --------------------------------------------------------------------------
-     7. MODAL DE LECTURA DE HISTORIA Y MODAL DE APORTE COMUNITARIO
+     7. MODALES ACCESIBLES (HISTORIA, APORTE COMUNITARIO Y LIGHTBOX)
      -------------------------------------------------------------------------- */
   const storyModal = document.getElementById('story-modal');
   const modalTitle = document.getElementById('modal-story-title');
@@ -435,6 +559,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalImg = document.getElementById('modal-story-img');
   const modalBody = document.getElementById('modal-story-body');
   const modalQuote = document.getElementById('modal-story-quote');
+  const contributeModal = document.getElementById('contribute-modal');
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxFigure = document.getElementById('lightbox-figure');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  let lastFocusedTrigger = null;
+
+  function openModal(modal, triggerEl = null) {
+    if (!modal) return;
+    lastFocusedTrigger = triggerEl || document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    const closeBtn = modal.querySelector('.modal-close-btn');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeAllModals() {
+    [storyModal, contributeModal, lightboxModal].forEach(modal => {
+      if (modal) modal.hidden = true;
+    });
+    document.body.classList.remove('modal-open');
+    if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+      lastFocusedTrigger.focus();
+      lastFocusedTrigger = null;
+    }
+  }
 
   document.querySelectorAll('[data-story]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
@@ -443,63 +593,182 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = lachesPoints[key];
       if (!data || !storyModal) return;
 
-      modalCat.textContent = data.categoryLabel;
-      modalTitle.textContent = data.title;
-      modalCoords.textContent = data.coords;
-      modalImg.src = data.image;
-      modalBody.textContent = data.summary;
-      modalQuote.textContent = data.quote;
-      storyModal.classList.add('open');
+      if (modalCat) {
+        modalCat.textContent = data.categoryLabel;
+        modalCat.className = `tag tag-${data.category}`;
+      }
+      if (modalTitle) modalTitle.textContent = data.title;
+      if (modalCoords) modalCoords.textContent = data.coords;
+      if (modalImg) {
+        modalImg.src = data.image;
+        modalImg.alt = data.title;
+      }
+      if (modalBody) {
+        modalBody.innerHTML = '';
+        const p = document.createElement('p');
+        p.textContent = data.summary;
+        modalBody.appendChild(p);
+      }
+      if (modalQuote) modalQuote.textContent = data.quote;
+
+      openModal(storyModal, trigger);
     });
   });
 
-  // Botones para ir a un punto específico en Google Maps
   document.querySelectorAll('[data-goto-map]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const pointKey = btn.dataset.gotoMap;
-      selectMapPoint(pointKey);
-      document.getElementById('mapa-cultural')?.scrollIntoView({ behavior: 'smooth' });
+      if (googleMapIframe) {
+        selectMapPoint(pointKey);
+        document.getElementById('mapa-cultural')?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = `mapa-cultural.html?punto=${encodeURIComponent(pointKey)}`;
+      }
     });
   });
 
-  const contributeModal = document.getElementById('contribute-modal');
   document.querySelectorAll('.open-contribute-modal').forEach(btn => {
     btn.addEventListener('click', () => {
-      contributeModal?.classList.add('open');
+      openModal(contributeModal, btn);
+    });
+  });
+
+  document.querySelectorAll('[data-lightbox]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!lightboxModal || !lightboxFigure) return;
+      const img = btn.querySelector('img');
+      if (!img) return;
+
+      const existingImg = lightboxFigure.querySelector('img');
+      if (existingImg) existingImg.remove();
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;
+      fullImg.alt = img.alt;
+      lightboxFigure.insertBefore(fullImg, lightboxCaption);
+
+      if (lightboxCaption) {
+        lightboxCaption.textContent = btn.dataset.caption || img.alt;
+      }
+
+      openModal(lightboxModal, btn);
     });
   });
 
   document.querySelectorAll('.modal-close-btn, .modal-backdrop').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.target === el) {
-        storyModal?.classList.remove('open');
-        contributeModal?.classList.remove('open');
+        closeAllModals();
       }
     });
   });
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllModals();
+      if (mobileMenuBtn && navLinksContainer && navLinksContainer.classList.contains('open')) {
+        navLinksContainer.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     8. VALIDACIÓN ACCESIBLE DEL FORMULARIO COMUNITARIO
+     -------------------------------------------------------------------------- */
   const contributeForm = document.getElementById('contribute-form');
   if (contributeForm) {
+    const nameInput = document.getElementById('contribute-name');
+    const nameError = document.getElementById('contribute-name-error');
+    const storyInput = document.getElementById('contribute-story');
+    const storyError = document.getElementById('contribute-story-error');
+    const feedback = document.getElementById('contribute-feedback');
+
     contributeForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const feedback = document.getElementById('contribute-feedback');
-      if (feedback) {
-        feedback.style.display = 'block';
-        contributeForm.reset();
+      let isValid = true;
+
+      if (nameInput && nameError) {
+        const validName = nameInput.value.trim().length > 0;
+        nameError.hidden = validName;
+        nameInput.setAttribute('aria-invalid', validName ? 'false' : 'true');
+        if (!validName) isValid = false;
       }
+
+      if (storyInput && storyError) {
+        const validStory = storyInput.value.trim().length > 0;
+        storyError.hidden = validStory;
+        storyInput.setAttribute('aria-invalid', validStory ? 'false' : 'true');
+        if (!validStory) isValid = false;
+      }
+
+      if (!isValid) {
+        const firstInvalid = contributeForm.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      if (feedback) {
+        feedback.hidden = false;
+      }
+      contributeForm.reset();
+      if (nameInput) nameInput.setAttribute('aria-invalid', 'false');
+      if (storyInput) storyInput.setAttribute('aria-invalid', 'false');
     });
   }
 
   /* --------------------------------------------------------------------------
-     8. MENÚ MÓVIL
+     9. MENÚ MÓVIL, HEADER SCROLL Y NAVEGACIÓN ACTIVA
      -------------------------------------------------------------------------- */
+  const siteHeader = document.getElementById('site-header');
   const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
   const navLinksContainer = document.getElementById('main-nav-links');
+  const navSectionLinks = document.querySelectorAll('#main-nav-links a[href^="#"]');
+
+  if (siteHeader) {
+    const toggleScrolled = () => {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    toggleScrolled();
+    window.addEventListener('scroll', toggleScrolled, { passive: true });
+  }
 
   if (mobileMenuBtn && navLinksContainer) {
     mobileMenuBtn.addEventListener('click', () => {
-      navLinksContainer.classList.toggle('mobile-open');
+      const isOpen = navLinksContainer.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinksContainer.querySelectorAll('a, button').forEach(item => {
+      item.addEventListener('click', () => {
+        navLinksContainer.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  if (navSectionLinks.length > 0 && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navSectionLinks.forEach(link => {
+          const isMatch = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', isMatch);
+          if (isMatch) {
+            link.setAttribute('aria-current', 'true');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      });
+    }, { rootMargin: '-30% 0px -55% 0px' });
+
+    navSectionLinks.forEach(link => {
+      const targetId = link.getAttribute('href')?.slice(1);
+      const section = targetId ? document.getElementById(targetId) : null;
+      if (section) sectionObserver.observe(section);
     });
   }
 });
