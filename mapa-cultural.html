@@ -86,10 +86,10 @@
 
               <div class="map-filter-list" role="group" aria-label="Filtrar puntos por categoría">
                 <button type="button" class="map-filter-btn active" data-filter="todos" aria-pressed="true">
-                  <span class="dot dot-mapa" aria-hidden="true"></span>Vista general <span class="filter-count">7</span>
+                  <span class="dot dot-mapa" aria-hidden="true"></span>Vista general <span class="filter-count">6</span>
                 </button>
                 <button type="button" class="map-filter-btn" data-filter="lugares" aria-pressed="false">
-                  <span class="dot dot-lugares" aria-hidden="true"></span>Lugares <span class="filter-count">2</span>
+                  <span class="dot dot-lugares" aria-hidden="true"></span>Lugares <span class="filter-count">1</span>
                 </button>
                 <button type="button" class="map-filter-btn" data-filter="oficios" aria-pressed="false">
                   <span class="dot dot-oficios" aria-hidden="true"></span>Oficios <span class="filter-count">2</span>
@@ -127,12 +127,8 @@
                   src="https://maps.google.com/maps?q=Barrio+Los+Laches,+Santa+Fe,+Bogota&t=m&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
 
                 <div class="map-Quick-pois-bar" role="group" aria-label="Puntos culturales del barrio">
-                  <button type="button" class="poi-chip-btn active" data-point="piedraAmor" data-cat="lugares"
+                  <button type="button" class="poi-chip-btn active" data-point="capilla" data-cat="lugares"
                     aria-pressed="true">
-                    <span class="dot dot-lugares" aria-hidden="true"></span>Mirador Piedra del Amor
-                  </button>
-                  <button type="button" class="poi-chip-btn" data-point="capilla" data-cat="lugares"
-                    aria-pressed="false">
                     <span class="dot dot-lugares" aria-hidden="true"></span>Iglesia Nuestra Señora de la Peña
                   </button>
                   <button type="button" class="poi-chip-btn" data-point="chircal" data-cat="oficios"
@@ -171,32 +167,20 @@
               <aside class="map-detail-panel" aria-live="polite" aria-labelledby="map-detail-title">
                 <div class="map-detail-media">
                   <img id="map-detail-img" class="map-detail-img"
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerros_orientales,_Bogot%C3%A1.jpg?width=1000"
-                    alt="Vista real de los Cerros Orientales en el sector de Los Laches, Bogotá" loading="lazy"
+                    src="fotos/Fotos/tien.png"
+                    alt="Santuario e Iglesia de Nuestra Señora de la Peña en Los Laches, Bogotá" loading="lazy"
                     decoding="async" />
                 </div>
                 <div>
-                  <p id="map-detail-cat" class="tag" data-cat="lugares">Lugar Emblemático · Mirador Natural</p>
-                  <h3 id="map-detail-title" class="map-detail-heading">Mirador La Piedra del Amor (Rocas de Los Laches)
-                  </h3>
-                  <p id="map-detail-coords" class="map-detail-coords">4.5894° N, 74.0612° W · Parte Alta Barrio Los
-                    Laches,
-                    Santa Fe</p>
+                  <p id="map-detail-cat" class="tag" data-cat="lugares">Monumento Nacional (1685–1722)</p>
+                  <h3 id="map-detail-title" class="map-detail-heading">Santuario e Iglesia de Nuestra Señora de la Peña</h3>
+                  <p id="map-detail-coords" class="map-detail-coords">4.5847° N, 74.0608° W · Carrera 7 Este # 2-68, Los Laches</p>
                 </div>
-                <p id="map-detail-desc" class="map-detail-desc">
-                  A más de 2.750 metros sobre el nivel del mar en los Cerros Orientales, estas formaciones rocosas
-                  ancestrales ofrecen una de las panorámicas reales más sobrecogedoras de Bogotá. Ha sido punto de
-                  encuentro
-                  de caminantes ecológicos, jóvenes del barrio y rituales de memoria muisca y lache.
-                </p>
-                <blockquote id="map-detail-quote" class="map-detail-quote">
-                  “Subir a la Piedra del Amor al atardecer es entender que Los Laches es el balcón donde Bogotá conversa
-                  con
-                  la montaña.”
-                </blockquote>
+                <p id="map-detail-desc" class="map-detail-desc">Construido entre 1717 y 1722 tras el hallazgo de las imágenes en la roca en 1685 y declarado Monumento Nacional en 1975. Es el corazón espiritual e histórico del sector de La Peña y Los Laches en la Localidad de Santa Fe.</p>
+                <blockquote id="map-detail-quote" class="map-detail-quote">“Las campanas de Nuestra Señora de la Peña marcan el pulso del domingo en Los Laches; tras la misa, la plazuela se llena de música y amasijos.”</blockquote>
                 <div class="map-detail-actions">
                   <button type="button" id="map-detail-modal-btn" class="btn btn-primary btn-block"
-                    data-story="piedraAmor">
+                    data-story="capilla">
                     Leer crónica completa <span aria-hidden="true">→</span>
                   </button>
                   <a id="open-in-gmaps-link" class="open-in-gmaps-link"
@@ -224,7 +208,7 @@
       <p id="modal-story-coords" class="map-detail-coords modal-story-coords"></p>
       <div class="modal-story-media">
         <img id="modal-story-img" class="modal-story-img"
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_La_Pe%C3%B1a_1.jpg?width=900" alt=""
+          src="fotos/Fotos/tien.png" alt=""
           loading="lazy" decoding="async" />
       </div>
       <div id="modal-story-body" class="modal-story-body"></div>
@@ -316,7 +300,6 @@
         <nav class="footer-col" aria-labelledby="footer-nav-hitos">
           <h2 class="footer-heading" id="footer-nav-hitos">Hitos en Google Maps</h2>
           <ul class="footer-links">
-            <li><a href="mapa-cultural.html?punto=piedraAmor" data-goto-map="piedraAmor">Mirador La Piedra del Amor</a></li>
             <li><a href="mapa-cultural.html?punto=capilla" data-goto-map="capilla">Santuario Nuestra Señora de la Peña</a></li>
             <li><a href="mapa-cultural.html?punto=chircal" data-goto-map="chircal">Memoria de los Chircales</a></li>
             <li><a href="mapa-cultural.html?punto=carpinteria" data-goto-map="carpinteria">Carpintería de Don Manuel</a></li>

@@ -9,18 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
      1. DATOS REALES Y GEORREFERENCIADOS EN GOOGLE MAPS — BARRIO LOS LACHES
      -------------------------------------------------------------------------- */
   const lachesPoints = {
-    piedraAmor: {
-      id: 'piedraAmor',
-      category: 'lugares',
-      categoryLabel: 'Lugar Emblemático · Mirador Natural',
-      title: 'Mirador La Piedra del Amor (Rocas de Los Laches)',
-      coords: '4.5894° N, 74.0612° W · Parte Alta Barrio Los Laches, Santa Fe',
-      mapQuery: '4.5894,-74.0612+(Mirador+Piedra+del+Amor+Barrio+Los+Laches+Bogota)',
-      zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cerros_orientales,_Bogot%C3%A1.jpg?width=1000',
-      summary: 'A más de 2.750 metros sobre el nivel del mar en los Cerros Orientales, estas formaciones rocosas ancestrales ofrecen una de las panorámicas reales más sobrecogedoras de Bogotá. Ha sido punto de encuentro de caminantes ecológicos, jóvenes del barrio y rituales de memoria muisca y lache.',
-      quote: '“Subir a la Piedra del Amor al atardecer es entender que Los Laches es el balcón donde Bogotá conversa con la montaña.” — Colectivo Caminantes de la Loma.'
-    },
     capilla: {
       id: 'capilla',
       category: 'lugares',
@@ -29,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5847° N, 74.0608° W · Carrera 7 Este # 2-68, Los Laches',
       mapQuery: 'Iglesia+de+Nuestra+Se%C3%B1ora+de+la+Pe%C3%B1a,+Los+Laches,+Bogota',
       zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_La_Pe%C3%B1a_1.jpg?width=1000',
+      image: 'fotos/Fotos/tien.png',
       summary: 'Construido entre 1717 y 1722 tras el hallazgo de las imágenes en la roca en 1685 y declarado Monumento Nacional en 1975. Es el corazón espiritual e histórico del sector de La Peña y Los Laches en la Localidad de Santa Fe.',
       quote: '“Las campanas de Nuestra Señora de la Peña marcan el pulso del domingo en Los Laches; tras la misa, la plazuela se llena de música y amasijos.”'
     },
@@ -41,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5882° N, 74.0595° W · Ladera Oriental Los Laches, Santa Fe',
       mapQuery: '4.5882,-74.0595+(Antiguos+Chircales+de+Los+Laches+Bogota)',
       zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Barrio_Egipto_de_Bogot%C3%A1.jpg?width=1000',
+      image: 'fotos/Fotos/tien.png',
       summary: 'En las faldas de los Cerros Orientales sobre Egipto y La Peña, decenas de familias migrantes de Boyacá y Santander amasaron greda y cocieron a fuego lento los ladrillos con los que se levantó tanto el barrio Los Laches como buena parte del centro de Bogotá entre 1950 y 1975.',
       quote: '“El barro nos dio el sustento y también las paredes de nuestra propia casa. Cada ladrillo lleva la huella de nuestras manos.” — Don Josué Cárdenas, maestro chircalero.'
     },
@@ -53,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5868° N, 74.0642° W · Carrera 9 Este con Calle 3, Los Laches',
       mapQuery: 'Calle+3+Carrera+9+Este,+Los+Laches,+Bogota',
       zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bogot%C3%A1_Barrio_La_Perseverancia.JPG?width=1000',
+      image: 'fotos/Fotos/tien.png',
       summary: 'Desde hace más de 40 años, los talleres de madera, ornamentación, zapatería y tiendas de esquina sostienen la vida cotidiana de Los Laches. En el taller de don Manuel se han tallado puertas, comedores y juguetes para tres generaciones de familias lachunas.',
       quote: '“La madera bien trabajada dura más que uno; en casi todas las cuadras de Los Laches hay una ventana o una mesa hecha por manos del barrio.” — Don Manuel.'
     },
@@ -65,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5875° N, 74.0635° W · Plazoleta Parque Los Laches',
       mapQuery: 'Parque+Los+Laches,+Santa+Fe,+Bogota',
       zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Do%C3%B1a_Tere,_Chichera_en_la_Perseverancia.jpg?width=900',
+      image: 'fotos/Fotos/se%C3%B1.png',
       summary: 'Portadora de la tradición culinaria cundiboyacense en la Localidad de Santa Fe. Sus envueltos de mazorca, ajiacos santafereños, fermentos tradicionales y ollas comunitarias han alimentado los convites y festivales barriales durante cuatro décadas.',
       quote: '“En esta loma nadie se queda sin un plato caliente; cuando prendemos el fogón, toda la cuadra se vuelve familia.” — Doña Mercedes.'
     },
@@ -77,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5878° N, 74.0628° W · Corredor Cultural Barrio Los Laches',
       mapQuery: 'Barrio+Los+Laches,+Santa+Fe,+Bogota',
       zoom: 16,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Carbog2007.jpg?width=1000',
+      image: 'fotos/Fotos/waw.png',
       summary: 'Cada año las calles empinadas y escaleras de Los Laches se transforman en un río de zanqueros, comparsas, hip-hop de la montaña, carranga y muralismo comunitario que celebra la dignidad y resistencia cultural de la Localidad de Santa Fe.',
       quote: '“Cambiamos el estigma por tambores y colores; cuando Los Laches baila, toda Bogotá mira hacia los cerros.” — Red Juvenil de Los Laches.'
     },
@@ -89,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       coords: '4.5879° N, 74.0631° W · Calle 4 Bis Este, Barrio Los Laches',
       mapQuery: '4.5879,-74.0631+(Escaleras+Fundacionales+Barrio+Los+Laches+Bogota)',
       zoom: 17,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Plaza_de_Los_M%C3%A1rtires_1948_-_Bogot%C3%A1.jpg?width=1000',
+      image: 'fotos/Fotos/ni%C3%B1o.png',
       summary: 'Memoria fotográfica de la transformación de Bogotá a mediados del siglo XX: cuando el crecimiento tras 1948 llevó a cientos de familias trabajadoras a poblar las antiguas canteras y chircales del oriente santafereño mediante convites comunitarios.',
       quote: '“Nadie nos regaló nada; cada peldaño de estas escaleras tiene nombre y apellido de los fundadores.” — Archivo Fotográfico Comunitario.'
     }
@@ -102,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name: 'Doña Mercedes — Cocinera tradicional y gestora cultural',
       bio: 'Guardián de las recetas de maíz, los convites comunitarios y la memoria culinaria de Los Laches.',
-      img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Do%C3%B1a_Tere,_Chichera_en_la_Perseverancia.jpg?width=800',
+      img: 'fotos/Fotos/se%C3%B1.png',
       quote: '“Con una olla comunitaria, envueltos de maíz y chicha tradicional levantamos los convites de toda nuestra cuadra.”',
       author: '— Doña Mercedes, sabedora de Santa Fe',
       duration: '00:15',
@@ -112,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name: 'Don Josué — Maestro chircalero de los cerros',
       bio: 'Su familia moldeó y cocinó el barro de los cerros orientales para levantar las primeras casas del barrio.',
-      img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bogot%C3%A1_Plaza_de_mercado_de_Las_Cruces.JPG?width=800',
+      img: 'fotos/Fotos/se%C3%B1o.png',
       quote: '“El barrio me enseñó a valorar lo que uno hace con las manos, desde amasar el barro hasta levantar cada pared en la loma.”',
       author: '— Don Josué, maestro chircalero',
       duration: '00:16',
@@ -122,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name: 'Valentina — Muralista y gestora juvenil',
       bio: 'Lidera recorridos culturales y murales comunitarios que narran la historia viva de Los Laches.',
-      img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mural_en_San_Victorino.jpg?width=800',
+      img: 'fotos/Fotos/vertical.png',
       quote: '“Pintar los muros de Los Laches es contarle a Bogotá que en los Cerros Orientales florece el arte y la vida.”',
       author: '— Valentina, muralista comunitaria',
       duration: '00:14',
@@ -306,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const externalGmapsLink = document.getElementById('open-in-gmaps-link');
 
   let currentMapType = 'm';
-  let currentPointKey = 'piedraAmor';
+  let currentPointKey = 'capilla';
   let currentMapFilter = 'todos';
   let mapLoadTimeout = null;
 
