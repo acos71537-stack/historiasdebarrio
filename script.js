@@ -93,8 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img: 'fotos/Fotos/se%C3%B1.png',
       quote: '“Con una olla comunitaria, envueltos de maíz y chicha tradicional levantamos los convites de toda nuestra cuadra.”',
       author: '— Doña Mercedes, sabedora de Santa Fe',
-      duration: '00:15',
-      audioSrc: 'audios/dona_mercedes.wav',
       storyKey: 'mercedes'
     },
     {
@@ -103,8 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img: 'fotos/Fotos/se%C3%B1o.png',
       quote: '“El barrio me enseñó a valorar lo que uno hace con las manos, desde amasar el barro hasta levantar cada pared en la loma.”',
       author: '— Don Josué, maestro chircalero',
-      duration: '00:16',
-      audioSrc: 'audios/don_josue.wav',
       storyKey: 'chircal'
     },
     {
@@ -113,8 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img: 'fotos/Fotos/vertical.png',
       quote: '“Pintar los muros de Los Laches es contarle a Bogotá que en los Cerros Orientales florece el arte y la vida.”',
       author: '— Valentina, muralista comunitaria',
-      duration: '00:14',
-      audioSrc: 'audios/valentina_jovenes.wav',
       storyKey: 'carnaval'
     }
   ];
@@ -124,101 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainCharBio = document.getElementById('featured-bio');
   const mainCharQuote = document.getElementById('pillar-char-quote');
   const mainCharAuthor = document.getElementById('pillar-char-author');
-  const mainCharTime = document.getElementById('pillar-char-time');
   const featuredStoryLink = document.getElementById('featured-story-link');
-  const pillarAudioPill = document.getElementById('pillar-audio-player');
   const thumbBtns = document.querySelectorAll('.char-thumb-btn');
-
-  /* --------------------------------------------------------------------------
-     3. REPRODUCTOR DE TESTIMONIOS SONOROS REALES (ARCHIVOS .WAV + FALLBACK TTS)
-     -------------------------------------------------------------------------- */
-  const audioPills = document.querySelectorAll('.audio-player-pill');
-  const sharedAudio = new Audio();
-  sharedAudio.preload = 'auto';
-  let currentActivePill = null;
-
-  function formatSeconds(sec) {
-    if (!isFinite(sec) || sec < 0) return '00:00';
-    const mins = String(Math.floor(sec / 60)).padStart(2, '0');
-    const secs = String(Math.floor(sec % 60)).padStart(2, '0');
-    return `${mins}:${secs}`;
-  }
-
-  function stopAllAudioPlayers() {
-    sharedAudio.pause();
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
-    audioPills.forEach(p => {
-      p.classList.remove('playing');
-      const pBtn = p.querySelector('.audio-play-btn');
-      if (pBtn) {
-        pBtn.textContent = '▶';
-        pBtn.setAttribute('aria-pressed', 'false');
-      }
-    });
-    currentActivePill = null;
-  }
-
-  function playTestimonyOnPill(pill) {
-    const audioFile = pill.dataset.audio || 'audios/dona_mercedes.wav';
-    const btn = pill.querySelector('.audio-play-btn');
-
-    stopAllAudioPlayers();
-
-    currentActivePill = pill;
-    pill.classList.add('playing');
-    if (btn) {
-      btn.textContent = '❚❚';
-      btn.setAttribute('aria-pressed', 'true');
-    }
-
-    sharedAudio.src = audioFile;
-    sharedAudio.currentTime = 0;
-
-    sharedAudio.play().catch(() => {
-      // Fallback con Web Speech API en español si el navegador bloquea archivos locales
-      if ('speechSynthesis' in window) {
-        const card = pill.closest('article, section');
-        const quoteText = card ? card.textContent : 'Testimonio del barrio Los Laches en la localidad de Santa Fe, Bogotá.';
-        const utterance = new SpeechSynthesisUtterance(quoteText);
-        utterance.lang = 'es-CO';
-        utterance.onend = () => stopAllAudioPlayers();
-        window.speechSynthesis.speak(utterance);
-      }
-    });
-  }
-
-  sharedAudio.addEventListener('timeupdate', () => {
-    if (!currentActivePill) return;
-    const timeEl = currentActivePill.querySelector('.audio-time');
-    if (timeEl) {
-      timeEl.textContent = formatSeconds(sharedAudio.currentTime);
-    }
-  });
-
-  sharedAudio.addEventListener('ended', () => {
-    if (currentActivePill) {
-      const timeEl = currentActivePill.querySelector('.audio-time');
-      if (timeEl && isFinite(sharedAudio.duration)) {
-        timeEl.textContent = formatSeconds(sharedAudio.duration);
-      }
-    }
-    stopAllAudioPlayers();
-  });
-
-  audioPills.forEach(pill => {
-    const btn = pill.querySelector('.audio-play-btn');
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-      if (currentActivePill === pill && !sharedAudio.paused) {
-        stopAllAudioPlayers();
-      } else {
-        playTestimonyOnPill(pill);
-      }
-    });
-  });
 
   thumbBtns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
@@ -240,16 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mainCharBio) mainCharBio.textContent = data.bio;
       if (mainCharQuote) mainCharQuote.textContent = data.quote;
       if (mainCharAuthor) mainCharAuthor.textContent = data.author;
-      if (mainCharTime) mainCharTime.textContent = data.duration;
       if (featuredStoryLink) featuredStoryLink.dataset.story = data.storyKey;
-
-      if (pillarAudioPill) {
-        const wasPlaying = currentActivePill === pillarAudioPill;
-        pillarAudioPill.dataset.audio = data.audioSrc;
-        if (wasPlaying) {
-          playTestimonyOnPill(pillarAudioPill);
-        }
-      }
     });
   });
 
